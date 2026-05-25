@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="theme-color" content="#0d0d0d"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="Tri Trainer"/>
+<meta name="description" content="Your personal Sprint Triathlon Training Plan"/>
+<link rel="manifest" href="manifest.json"/>
+<title>Tri Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --n:#0d0d0d;--n2:#141414;--n3:#1c1c1c;--sl:#2a2a2a;
+  --tx:#f0f0f0;--mu:#666;--dm:#333;
+  --acc:#e8ff00;--acc2:#b8cc00;
+  --sw:#2563eb;--bk:#d97706;--rn:#16a34a;--br:#7c3aed;--re:#334155;--rc:#dc2626;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bot:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',sans-serif;color:var(--tx)}
+#app{display:flex;flex-direction:column;height:100%;max-width:480px;margin:0 auto}
+
+/* Header */
+#header{background:var(--n2);border-bottom:1px solid var(--sl);padding:calc(12px + var(--safe-top)) 18px 12px;flex-shrink:0}
+#header-top{display:flex;justify-content:space-between;align-items:flex-start}
+#app-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;line-height:1;color:var(--acc)}
+#app-subtitle{font-size:10px;color:var(--mu);margin-top:2px;letter-spacing:.5px}
+#overall-pct{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--acc);line-height:1;text-align:right}
+#overall-label{font-size:9px;color:var(--mu);text-align:right;letter-spacing:.5px}
+#progress-bar-wrap{margin-top:9px;background:var(--n3);border-radius:99px;height:3px}
+#progress-bar-fill{height:100%;border-radius:99px;background:var(--acc);transition:width .6s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* Notification banner */
+#notif-banner{display:none;margin:10px 18px 0;background:var(--n3);border:1px solid var(--sl);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--mu);align-items:center;gap:10px}
+#notif-banner.show{display:flex}
+#notif-btn{margin-left:auto;background:var(--acc);color:#000;border:none;border-radius:7px;padding:6px 12px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
+
+/* Bottom nav */
+#bottom-nav{flex-shrink:0;background:var(--n2);border-top:1px solid var(--sl);display:flex;padding-bottom:var(--safe-bot)}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0;border:none;background:transparent;color:var(--mu);font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.5px;font-family:inherit;transition:color .2s}
+.nav-btn .icon{font-size:19px}
+.nav-btn.active{color:var(--acc)}
+
+/* Content */
+#content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.view{display:none;padding:14px 16px}
+.view.active{display:block}
+
+/* Hype banner */
+.hype-banner{background:var(--n2);border-left:3px solid var(--acc);border-radius:0 10px 10px 0;padding:12px 14px;margin-bottom:12px}
+.hype-label{font-size:9px;font-weight:700;letter-spacing:2px;color:var(--acc);text-transform:uppercase;margin-bottom:5px}
+.hype-msg{font-size:12px;font-weight:500;line-height:1.65;color:#ccc;font-style:italic}
+
+/* Today */
+.today-meta{font-size:10px;color:var(--mu);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.today-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;margin-bottom:2px}
+.today-sub{font-size:11px;color:var(--mu);margin-bottom:12px}
+
+.day-hdr{border-radius:13px;padding:14px 16px;margin-bottom:11px;display:flex;align-items:center;gap:13px}
+.day-icon{font-size:32px}
+.day-disc{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--acc)}
+.day-type{font-size:12px;color:var(--mu);margin-top:1px}
+.day-prog{font-size:11px;color:var(--mu);margin-top:3px}
+
+/* Step cards */
+.step-card{background:var(--n2);border-radius:11px;padding:13px 14px;display:flex;gap:12px;align-items:flex-start;margin-bottom:7px;border:1px solid var(--n3);cursor:pointer;transition:all .2s;-webkit-user-select:none;user-select:none}
+.step-card.done{opacity:.38;background:var(--n);border-color:transparent}
+.step-card:active{transform:scale(.98)}
+.chk{width:22px;height:22px;border-radius:6px;flex-shrink:0;margin-top:1px;border:2px solid var(--dm);background:transparent;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#000;transition:all .2s}
+.chk.on{background:var(--acc);border-color:var(--acc)}
+.step-lbl{font-size:13px;font-weight:500;line-height:1.4;color:var(--tx);transition:all .2s}
+.step-card.done .step-lbl{text-decoration:line-through;color:var(--mu)}
+.step-note{font-size:11px;color:var(--mu);margin-top:4px;line-height:1.45}
+.step-card.done .step-note{display:none}
+.step-key{color:var(--acc)}
+
+/* Bike log */
+.bike-log{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
+.section-title{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.bike-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.bike-field label{display:block;font-size:10px;color:var(--mu);margin-bottom:4px}
+.bike-field input{width:100%;background:var(--n3);border:1px solid var(--sl);border-radius:8px;padding:8px 10px;color:var(--tx);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.bike-field input:focus{border-color:var(--acc)}
+.bike-field input::placeholder{color:var(--dm);font-weight:400}
+
+/* Rating card */
+.rating-card{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
+.rating-row{margin-bottom:11px}
+.rating-row:last-of-type{margin-bottom:12px}
+.rating-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+.rating-name{font-size:13px;color:var(--tx)}
+.rating-val{font-family:'Bebas Neue',sans-serif;font-size:16px}
+.rating-slider{width:100%;height:4px;border-radius:99px;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;border:none}
+.save-btn{width:100%;padding:11px;background:var(--acc);color:#000;border:none;border-radius:9px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Bebas Neue',sans-serif;letter-spacing:2px;transition:transform .15s}
+.save-btn:active{transform:scale(.97)}
+
+/* Plan */
+.week-card{background:var(--n2);border-radius:13px;margin-bottom:9px;overflow:hidden;border:1px solid var(--sl)}
+.week-hdr{padding:13px 15px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;-webkit-user-select:none;user-select:none}
+.wk-phase{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.wk-num{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:var(--tx)}
+.wk-focus{font-size:11px;color:var(--mu);margin-top:2px;max-width:210px}
+.wk-pct{font-family:'Bebas Neue',sans-serif;font-size:20px;text-align:right}
+.wk-pct-lbl{font-size:9px;color:var(--mu);text-align:right}
+.week-body{display:none;padding:0 11px 11px}
+.week-body.open{display:block}
+.day-row{display:flex;align-items:center;gap:9px;padding:8px 6px;border-radius:9px;margin-bottom:3px;cursor:pointer;transition:background .15s;-webkit-user-select:none;user-select:none}
+.day-row:active{background:var(--n3)}
+.dr-icon{font-size:16px;width:22px;text-align:center}
+.dr-day{font-size:11px;font-weight:700;color:var(--mu);width:25px}
+.dr-disc{font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;flex-shrink:0}
+.dr-type{font-size:11px;color:var(--mu);flex:1}
+.dr-dots{display:flex;gap:3px;flex-wrap:wrap;max-width:60px}
+.dot{width:6px;height:6px;border-radius:50%;border:1px solid var(--dm)}
+.dot.on{border-color:currentColor}
+.dr-arr{color:var(--dm);font-size:14px}
+
+/* Day detail */
+#day-detail{position:fixed;inset:0;background:var(--n);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);z-index:100;display:flex;flex-direction:column;max-width:480px;left:50%;margin-left:-240px}
+@media(max-width:480px){#day-detail{left:0;margin-left:0}}
+#day-detail.open{transform:translateX(0)}
+#detail-header{padding:calc(14px + var(--safe-top)) 18px 14px;border-bottom:1px solid var(--sl);flex-shrink:0}
+#detail-back{background:transparent;border:none;color:var(--mu);font-size:13px;cursor:pointer;padding:0;margin-bottom:12px;font-family:inherit;display:flex;align-items:center;gap:5px}
+#detail-content{flex:1;overflow-y:auto;padding:14px 16px}
+
+/* Stats */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.stat-card{background:var(--n2);border-radius:11px;padding:14px;border:1px solid var(--sl)}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--acc);line-height:1}
+.stat-lbl{font-size:11px;color:var(--mu);margin-top:3px}
+.sec-title-stats{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--mu);margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid var(--sl)}
+.disc-bar{margin-bottom:10px}
+.disc-bar-lbl{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.disc-bar-track{background:var(--n3);border-radius:99px;height:7px;overflow:hidden}
+.disc-bar-fill{height:100%;border-radius:99px;transition:width .6s}
+.rating-summary{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.rs-card{background:var(--n2);border-radius:10px;padding:11px;border:1px solid var(--sl);text-align:center}
+.rs-val{font-family:'Bebas Neue',sans-serif;font-size:24px;line-height:1}
+.rs-lbl{font-size:10px;color:var(--mu);margin-top:3px}
+.bike-stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sl);font-size:12px}
+.bike-stat-row:last-child{border-bottom:none}
+
+/* Notif settings */
+.notif-card{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
+.notif-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.notif-row:last-of-type{margin-bottom:12px}
+.notif-lbl{font-size:13px;color:var(--tx)}
+.notif-sub{font-size:10px;color:var(--mu);margin-top:2px}
+.notif-time{background:var(--n3);border:1px solid var(--sl);border-radius:8px;padding:6px 10px;color:var(--tx);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer}
+.notif-time:focus{border-color:var(--acc)}
+
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+.pop{animation:pop .25s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.slide-up{animation:slideUp .35s ease forwards}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="header">
+    <div id="header-top">
+      <div>
+        <div id="app-title">TRI TRAINER</div>
+        <div id="app-subtitle">🏊 750m · 🚴 20km · 🏃 5km · Jul 19</div>
+      </div>
+      <div>
+        <div id="overall-pct">0%</div>
+        <div id="overall-label">COMPLETE</div>
+      </div>
+    </div>
+    <div id="progress-bar-wrap"><div id="progress-bar-fill"></div></div>
+  </div>
+
+  <div id="notif-banner">
+    <span>🔔 Enable workout notifications?</span>
+    <button id="notif-btn" onclick="requestNotifications()">Enable</button>
+  </div>
+
+  <div id="content">
+    <div id="view-today" class="view active"></div>
+    <div id="view-plan" class="view"></div>
+    <div id="view-stats" class="view"></div>
+    <div id="view-alerts" class="view">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--acc);margin-bottom:14px">Notification Settings</div>
+      <div class="notif-card">
+        <div class="section-title" style="color:var(--acc)">Workout Alerts</div>
+        <div class="notif-row">
+          <div><div class="notif-lbl">🌙 Evening Reminder</div><div class="notif-sub">Night before your workout</div></div>
+          <input type="time" class="notif-time" id="eve-time" value="20:00"/>
+        </div>
+        <div class="notif-row">
+          <div><div class="notif-lbl">☀️ Morning Alert</div><div class="notif-sub">Day of your workout</div></div>
+          <input type="time" class="notif-time" id="morn-time" value="07:00"/>
+        </div>
+        <button class="save-btn" onclick="saveNotifTimes()">SAVE TIMES</button>
+      </div>
+      <div class="notif-card">
+        <div class="section-title" style="color:var(--mu)">How It Works</div>
+        <p style="font-size:12px;color:var(--mu);line-height:1.7">After adding the app to your Android home screen, tap <strong style="color:var(--tx)">Enable Notifications</strong> when prompted at the top. You'll get an alert at your chosen times — the night before and the morning of each workout day.<br><br>Rest days and Mondays are always skipped.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="day-detail">
+    <div id="detail-header">
+      <button id="detail-back" onclick="closeDetail()">← Back</button>
+      <div id="detail-header-content"></div>
+    </div>
+    <div id="detail-content"></div>
+  </div>
+
+  <div id="bottom-nav">
+    <button class="nav-btn active" onclick="switchView('today',this)"><span class="icon">📅</span>TODAY</button>
+    <button class="nav-btn" onclick="switchView('plan',this)"><span class="icon">📋</span>PLAN</button>
+    <button class="nav-btn" onclick="switchView('stats',this)"><span class="icon">📊</span>STATS</button>
+    <button class="nav-btn" onclick="switchView('alerts',this)"><span class="icon">🔔</span>ALERTS</button>
+  </div>
+</div>
+
+<script src="plan-data.js"></script>
+<script>
+const HYPE=[
+  "Most people choose comfort over growth every single day. That choice compounds into a life of mediocrity. You are in a war with the version of yourself that wants to stay comfortable. Attack it.",
+  "The mind will always quit before the body does. Always. When you feel like stopping, you're at 40% of what you're actually capable of. You haven't even started yet.",
+  "David Goggins ran 100 miles on broken feet. He didn't know if he'd finish. He finished. Your workout today is not hard. Your excuses are just loud. Silence them.",
+  "Self-discipline is the bridge between who you are and who you're capable of becoming. Every rep, every lap, every mile you do when you don't want to — that's the bridge being built.",
+  "Les Brown said it: you have greatness within you. But greatness doesn't care about your feelings. It only shows up when you do. Show up.",
+  "Navy SEALs have a rule: when your mind says quit, you're only 40% done. The last 60% is where character is built. Where champions separate from the crowd. Get there.",
+  "Suffering is a choice only when you stop. Keep moving and it becomes progress. The pain you feel today is the strength you'll own tomorrow. Don't waste it.",
+  "You will not rise to the level of your goals. You will fall to the level of your systems. Show up every day without negotiation. That is your system. Build it now.",
+  "There are no shortcuts to July 19. Every missed session is a debt your body will pay on race day with interest. Every session you complete is armor. Put the armor on.",
+  "Goggins says: stay hard. That's not motivation — motivation fades. That's a standard. A decision made in advance that no matter what, you will not fold. Make that decision right now.",
+  "Les Brown: it's not over until you win. You haven't won yet. That means it's not over. That means you get back up. That means you put in the work. One more time.",
+  "The SEAL Creed: I will never quit. I persevere and thrive on adversity. I am physically harder and mentally stronger. Be harder. Be stronger. Starting right now.",
+  "Discipline equals freedom. Every time you choose the workout over the couch, you're buying your freedom. Freedom to compete. Freedom to finish. Freedom to be someone you're proud of.",
+  "Stop waiting to feel ready. Readiness is earned through action, not felt before it. Get in the water, on the bike, on the road. The feeling you're waiting for comes after — not before.",
+  "One day you will not be able to do this. Your body will be too old, too broken, or gone. Today is not that day. Today you can. So the only real question is: will you?",
+];
+
+const DISC_COLOR={
+  Swim:{bg:'#0c1e3c',bd:'#1e3a5f',pill:'#2563eb',tx:'#fff'},
+  Bike:{bg:'#161000',bd:'#3d2e00',pill:'#d97706',tx:'#fff'},
+  Run:{bg:'#0a1f0f',bd:'#14532d',pill:'#16a34a',tx:'#fff'},
+  Brick:{bg:'#1a0d2e',bd:'#3b1f63',pill:'#7c3aed',tx:'#fff'},
+  REST:{bg:'#111',bd:'#222',pill:'#334155',tx:'#94a3b8'},
+  RACE:{bg:'#1f0505',bd:'#450a0a',pill:'#dc2626',tx:'#fff'},
+};
+const DISC_ICON={Swim:'🏊',Bike:'🚴',Run:'🏃',Brick:'⚡',REST:'😴',RACE:'🏁'};
+const PHASE_COLOR={'Return to Form':'#2563eb',Build:'#d97706','Peak Build':'#dc2626',Taper:'#7c3aed','Race Week':'#e8ff00'};
+const DISC_BAR_COLOR={Swim:'#2563eb',Bike:'#d97706',Run:'#16a34a',Brick:'#7c3aed'};
+
+// ── Persistent state ──────────────────────────────────────────────────────
+const SK='tri_v2';
+let state=JSON.parse(localStorage.getItem(SK)||'{"completed":{},"ratings":{},"bikeLogs":{},"notifTimes":{"eve":"20:00","morn":"07:00"}}');
+function save(){localStorage.setItem(SK,JSON.stringify(state))}
+
+// ── Keys ──────────────────────────────────────────────────────────────────
+function sKey(wi,di,si){return `${wi}-${di}-${si}`}
+function dKey(wi,di){return `${wi}-${di}`}
+
+// ── Progress ──────────────────────────────────────────────────────────────
+function totalSteps(){return PLAN.reduce((a,w)=>a+w.days.reduce((b,d)=>b+d.steps.length,0),0)}
+function doneCount(){return Object.values(state.completed).filter(Boolean).length}
+function updateGlobal(){
+  const pct=Math.round(doneCount()/totalSteps()*100);
+  document.getElementById('overall-pct').textContent=pct+'%';
+  document.getElementById('progress-bar-fill').style.width=pct+'%';
+}
+function dayDone(wi,di){return PLAN[wi].days[di].steps.filter((_,si)=>state.completed[sKey(wi,di,si)]).length}
+function weekDone(wi){return PLAN[wi].days.reduce((a,_,di)=>a+dayDone(wi,di),0)}
+function weekTotal(wi){return PLAN[wi].days.reduce((a,d)=>a+d.steps.length,0)}
+
+// ── Today detection ───────────────────────────────────────────────────────
+function todayStr(){return new Date().toISOString().split('T')[0]}
+function findToday(){
+  const t=todayStr();
+  for(let wi=0;wi<PLAN.length;wi++)
+    for(let di=0;di<PLAN[wi].days.length;di++)
+      if(PLAN[wi].days[di].date===t)return{wi,di};
+  return null;
+}
+
+// ── Hype ──────────────────────────────────────────────────────────────────
+function getHype(){return HYPE[new Date().getDate()%HYPE.length]}
+
+// ── Render TODAY ──────────────────────────────────────────────────────────
+function renderToday(){
+  const loc=findToday();
+  const el=document.getElementById('view-today');
+  const dateStr=new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}).toUpperCase();
+
+  if(!loc){
+    const now=new Date();
+    const msg=now<new Date('2026-05-26')
+      ?'<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🚴</div><div style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">Plan Starts Tomorrow</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Your first workout is Tuesday May 26.<br>A bike session. Be ready.</div></div>'
+      :'<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🏁</div><div style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">You Did It</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Race day complete. You\'re a triathlete.</div></div>';
+    el.innerHTML=`<div class="hype-banner"><div class="hype-label">Daily Mindset</div><div class="hype-msg">"${getHype()}"</div></div>${msg}`;
+    return;
+  }
+
+  const{wi,di}=loc;
+  const week=PLAN[wi];
+  const day=week.days[di];
+  const dc=DISC_COLOR[day.discipline]||DISC_COLOR.REST;
+  const icon=DISC_ICON[day.discipline]||'•';
+  const done=dayDone(wi,di);
+  const total=day.steps.length;
+  const isBike=day.discipline==='Bike'||day.discipline==='Brick';
+  const dk=dKey(wi,di);
+  const savedBike=state.bikeLogs[dk]||{};
+  const savedRating=state.ratings[dk]||{effort:5,fatigue:5,excite:5};
+
+  let html=`
+    <div class="hype-banner"><div class="hype-label">Daily Mindset</div><div class="hype-msg">"${getHype()}"</div></div>
+    <div class="today-meta">${dateStr}</div>
+    <div class="today-title">Week ${week.week} — ${day.day}</div>
+    <div class="today-sub">${day.discipline} · ${day.type} · ${done}/${total} steps done</div>
+    <div class="day-hdr" style="background:${dc.bg};border:1px solid ${dc.bd}">
+      <div class="day-icon">${icon}</div>
+      <div>
+        <div class="day-disc">${day.discipline}</div>
+        <div class="day-type">${day.type}</div>
+        <div class="day-prog">${done} of ${total} steps complete</div>
+      </div>
+    </div>`;
+
+  day.steps.forEach((step,si)=>{
+    const done=state.completed[sKey(wi,di,si)];
+    const isKey=step.label.startsWith('⭐')||step.label.startsWith('⏱');
+    html+=`<div class="step-card${done?' done':''} slide-up" onclick="toggleStep(${wi},${di},${si},this)" style="animation-delay:${si*.04}s">
+      <div class="chk${done?' on':''}">${done?'✓':''}</div>
+      <div style="flex:1">
+        <div class="step-lbl${isKey?' step-key':''}">${step.label}</div>
+        ${step.note?`<div class="step-note">${step.note}</div>`:''}
+      </div>
+    </div>`;
+  });
+
+  if(isBike){
+    html+=`<div class="bike-log">
+      <div class="section-title" style="color:var(--bk)">🚴 Bike Log</div>
+      <div class="bike-fields">
+        <div class="bike-field"><label>Distance (km)</label>
+          <input type="number" id="bike-dist" placeholder="0.0" step="0.1" min="0" value="${savedBike.dist||''}" oninput="saveBikeLog(${wi},${di})"/></div>
+        <div class="bike-field"><label>Time (min)</label>
+          <input type="number" id="bike-time" placeholder="0" step="1" min="0" value="${savedBike.time||''}" oninput="saveBikeLog(${wi},${di})"/></div>
+      </div>
+    </div>`;
+  }
+
+  html+=`<div class="rating-card">
+    <div class="section-title" style="color:var(--mu)">Rate This Workout</div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">💪 Effort</span><span class="rating-val" id="rv-effort" style="color:#ef4444">${savedRating.effort}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.effort}" id="rs-effort"
+        style="accent-color:#ef4444" oninput="updateRating('effort',this.value)"/>
+    </div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">😴 Fatigue</span><span class="rating-val" id="rv-fatigue" style="color:#f59e0b">${savedRating.fatigue}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.fatigue}" id="rs-fatigue"
+        style="accent-color:#f59e0b" oninput="updateRating('fatigue',this.value)"/>
+    </div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">🔥 Excitement</span><span class="rating-val" id="rv-excite" style="color:#e8ff00">${savedRating.excite}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.excite}" id="rs-excite"
+        style="accent-color:#e8ff00" oninput="updateRating('excite',this.value)"/>
+    </div>
+    <button class="save-btn" onclick="saveRating(${wi},${di})">SAVE RATING</button>
+  </div>`;
+
+  el.innerHTML=html;
+  initSliderGradients(savedRating);
+}
+
+function initSliderGradients(r){
+  [['effort','#ef4444'],['fatigue','#f59e0b'],['excite','#e8ff00']].forEach(([k,c])=>{
+    const sl=document.getElementById('rs-'+k);
+    if(sl){const pct=((r[k]-1)/9*100).toFixed(1);sl.style.background=`linear-gradient(90deg,${c} ${pct}%,var(--n3) ${pct}%)`}
+  });
+}
+
+function toggleStep(wi,di,si,card){
+  const key=sKey(wi,di,si);
+  state.completed[key]=!state.completed[key];
+  save();
+  const done=state.completed[key];
+  card.classList.toggle('done',done);
+  const chk=card.querySelector('.chk');
+  chk.classList.toggle('on',done);
+  chk.textContent=done?'✓':'';
+  card.classList.add('pop');
+  setTimeout(()=>card.classList.remove('pop'),250);
+  // Sync to Google Sheets
+  const stepData = PLAN[wi].days[di].steps[si];
+  const week = PLAN[wi];
+  const day = PLAN[wi].days[di];
+  syncToSheets({
+    type: 'STEP',
+    key: sKey(wi,di,si),
+    week: week.week,
+    day: day.day,
+    discipline: day.discipline,
+    label: stepData.label,
+    completed: state.completed[sKey(wi,di,si)]
+  });
+  const total=PLAN[wi].days[di].steps.length;
+  const dd=dayDone(wi,di);
+  const sub=document.querySelector('.today-sub');
+  if(sub)sub.textContent=`${PLAN[wi].days[di].discipline} · ${PLAN[wi].days[di].type} · ${dd}/${total} steps done`;
+  const prog=document.querySelector('.day-prog');
+  if(prog)prog.textContent=`${dd} of ${total} steps complete`;
+  updateGlobal();
+}
+
+function saveBikeLog(wi,di){
+  const dk=dKey(wi,di);
+  const day=PLAN[wi].days[di];
+  state.bikeLogs[dk]={
+    dist:parseFloat(document.getElementById('bike-dist').value)||0,
+    time:parseInt(document.getElementById('bike-time').value)||0,
+    label:`W${wi+1} ${day.day} ${day.discipline}`,
+    week:wi+1, day:day.day
+  };
+  save();
+  syncToSheets({
+    type:'BIKE', key:dk,
+    week:state.bikeLogs[dk].week, day:state.bikeLogs[dk].day,
+    label:state.bikeLogs[dk].label,
+    dist:state.bikeLogs[dk].dist, time:state.bikeLogs[dk].time
+  });
+}
+
+let pendingRating={effort:5,fatigue:5,excite:5};
+function updateRating(key,val){
+  val=parseInt(val);
+  pendingRating[key]=val;
+  const cols={effort:'#ef4444',fatigue:'#f59e0b',excite:'#e8ff00'};
+  const pct=((val-1)/9*100).toFixed(1);
+  const sl=document.getElementById('rs-'+key);
+  if(sl)sl.style.background=`linear-gradient(90deg,${cols[key]} ${pct}%,var(--n3) ${pct}%)`;
+  const vEl=document.getElementById('rv-'+key);
+  if(vEl){vEl.textContent=val;vEl.style.color=cols[key];vEl.classList.add('pop');setTimeout(()=>vEl.classList.remove('pop'),250);}
+}
+
+function saveRating(wi,di){
+  state.ratings[dKey(wi,di)]={...pendingRating};
+  save();
+  const week=PLAN[wi], day=PLAN[wi].days[di];
+  syncToSheets({
+    type:'RATING', key:dKey(wi,di),
+    week:week.week, day:day.day, discipline:day.discipline,
+    effort:pendingRating.effort, fatigue:pendingRating.fatigue, excite:pendingRating.excite
+  });
+  showToast('Rating saved ✓ Synced');
+}
+
+// ── Render PLAN ───────────────────────────────────────────────────────────
+function renderPlan(){
+  let html='';
+  PLAN.forEach((week,wi)=>{
+    const pc=PHASE_COLOR[week.phase]||'#e8ff00';
+    const wt=weekTotal(wi),wd=weekDone(wi);
+    const wpct=wt?Math.round(wd/wt*100):0;
+    let rows='';
+    week.days.forEach((day,di)=>{
+      const dc=DISC_COLOR[day.disc||day.discipline]||DISC_COLOR.REST;
+      const disc=day.disc||day.discipline;
+      const dd=dayDone(wi,di);
+      const dots=day.steps.map((_,si)=>{
+        const on=state.completed[sKey(wi,di,si)];
+        return `<div class="dot${on?' on':''}" style="${on?`color:${dc.pill};background:${dc.pill}`:''}" ></div>`;
+      }).join('');
+      rows+=`<div class="day-row" onclick="openDetail(${wi},${di})">
+        <div class="dr-icon">${DISC_ICON[disc]||'•'}</div>
+        <div class="dr-day">${day.day}</div>
+        <span class="dr-disc" style="background:${dc.pill};color:${dc.tx}">${disc}</span>
+        <div class="dr-type">${day.type}</div>
+        <div class="dr-dots">${dots}</div>
+        <div class="dr-arr">›</div>
+      </div>`;
+    });
+    html+=`<div class="week-card">
+      <div class="week-hdr" onclick="toggleWeek(${wi})">
+        <div>
+          <div class="wk-phase" style="color:${pc}">${week.phase}</div>
+          <div class="wk-num">Week ${week.week}</div>
+          <div class="wk-focus">${week.focus}</div>
+        </div>
+        <div>
+          <div class="wk-pct" style="color:${pc}">${wpct}%</div>
+          <div class="wk-pct-lbl">${wd}/${wt}</div>
+        </div>
+      </div>
+      <div class="week-body" id="wb-${wi}">${rows}</div>
+    </div>`;
+  });
+  document.getElementById('view-plan').innerHTML=html;
+}
+
+function toggleWeek(wi){document.getElementById('wb-'+wi).classList.toggle('open')}
+
+// ── Day detail ────────────────────────────────────────────────────────────
+let detailCtx=null;
+let currentView='today';
+
+function openDetail(wi,di){
+  detailCtx={wi,di};
+  renderDetail();
+  document.getElementById('day-detail').classList.add('open');
+  document.getElementById('content').style.overflow='hidden';
+}
+
+function closeDetail(){
+  document.getElementById('day-detail').classList.remove('open');
+  document.getElementById('content').style.overflow='auto';
+  detailCtx=null;
+  if(currentView==='plan')renderPlan();
+  updateGlobal();
+}
+
+function renderDetail(){
+  const{wi,di}=detailCtx;
+  const week=PLAN[wi];
+  const day=week.days[di];
+  const disc=day.disc||day.discipline;
+  const dc=DISC_COLOR[disc]||DISC_COLOR.REST;
+  const icon=DISC_ICON[disc]||'•';
+  const done=dayDone(wi,di);
+  const total=day.steps.length;
+  const isBike=disc==='Bike'||disc==='Brick';
+  const dk=dKey(wi,di);
+  const savedBike=state.bikeLogs[dk]||{};
+  const savedRating=state.ratings[dk]||{effort:5,fatigue:5,excite:5};
+
+  document.getElementById('detail-header-content').innerHTML=`
+    <div style="display:flex;align-items:center;gap:12px">
+      <span style="font-size:30px">${icon}</span>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--acc)">${day.day} — ${disc}</div>
+        <div style="font-size:12px;color:var(--mu)">${day.type} · Week ${week.week} · ${done}/${total} steps</div>
+      </div>
+    </div>`;
+
+  let html='';
+  day.steps.forEach((step,si)=>{
+    const d=state.completed[sKey(wi,di,si)];
+    const isKey=step.label.startsWith('⭐')||step.label.startsWith('⏱');
+    html+=`<div class="step-card${d?' done':''}" onclick="toggleDetailStep(${wi},${di},${si},this)">
+      <div class="chk${d?' on':''}">${d?'✓':''}</div>
+      <div style="flex:1">
+        <div class="step-lbl${isKey?' step-key':''}">${step.label}</div>
+        ${step.note?`<div class="step-note">${step.note}</div>`:''}
+      </div>
+    </div>`;
+  });
+
+  if(isBike){
+    html+=`<div class="bike-log">
+      <div class="section-title" style="color:var(--bk)">🚴 Bike Log</div>
+      <div class="bike-fields">
+        <div class="bike-field"><label>Distance (km)</label>
+          <input type="number" id="det-bike-dist" placeholder="0.0" step="0.1" min="0" value="${savedBike.dist||''}" oninput="saveDetailBike(${wi},${di})"/></div>
+        <div class="bike-field"><label>Time (min)</label>
+          <input type="number" id="det-bike-time" placeholder="0" step="1" min="0" value="${savedBike.time||''}" oninput="saveDetailBike(${wi},${di})"/></div>
+      </div>
+    </div>`;
+  }
+
+  html+=`<div class="rating-card">
+    <div class="section-title" style="color:var(--mu)">Rate This Workout</div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">💪 Effort</span><span class="rating-val" id="drv-effort" style="color:#ef4444">${savedRating.effort}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.effort}" id="drs-effort" style="accent-color:#ef4444" oninput="updateDetailRating('effort',this.value)"/>
+    </div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">😴 Fatigue</span><span class="rating-val" id="drv-fatigue" style="color:#f59e0b">${savedRating.fatigue}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.fatigue}" id="drs-fatigue" style="accent-color:#f59e0b" oninput="updateDetailRating('fatigue',this.value)"/>
+    </div>
+    <div class="rating-row">
+      <div class="rating-label"><span class="rating-name">🔥 Excitement</span><span class="rating-val" id="drv-excite" style="color:#e8ff00">${savedRating.excite}</span></div>
+      <input type="range" class="rating-slider" min="1" max="10" value="${savedRating.excite}" id="drs-excite" style="accent-color:#e8ff00" oninput="updateDetailRating('excite',this.value)"/>
+    </div>
+    <button class="save-btn" onclick="saveDetailRating(${wi},${di})">SAVE RATING</button>
+  </div>`;
+
+  document.getElementById('detail-content').innerHTML=html;
+  const r=savedRating;
+  [['effort','#ef4444'],['fatigue','#f59e0b'],['excite','#e8ff00']].forEach(([k,c])=>{
+    const sl=document.getElementById('drs-'+k);
+    if(sl){const pct=((r[k]-1)/9*100).toFixed(1);sl.style.background=`linear-gradient(90deg,${c} ${pct}%,var(--n3) ${pct}%)`}
+  });
+}
+
+function toggleDetailStep(wi,di,si,card){
+  const key=sKey(wi,di,si);
+  state.completed[key]=!state.completed[key];
+  save();
+  const done=state.completed[key];
+  card.classList.toggle('done',done);
+  const chk=card.querySelector('.chk');
+  chk.classList.toggle('on',done);
+  chk.textContent=done?'✓':'';
+  card.classList.add('pop');
+  setTimeout(()=>card.classList.remove('pop'),250);
+  // Sync to Google Sheets
+  const stepData2 = PLAN[wi].days[di].steps[si];
+  syncToSheets({
+    type: 'STEP',
+    key: sKey(wi,di,si),
+    week: PLAN[wi].week,
+    day: PLAN[wi].days[di].day,
+    discipline: PLAN[wi].days[di].discipline,
+    label: stepData2.label,
+    completed: state.completed[sKey(wi,di,si)]
+  });
+  const total=PLAN[wi].days[di].steps.length;
+  document.getElementById('detail-header-content').querySelector('div>div:last-child').textContent=
+    `${PLAN[wi].days[di].type} · Week ${wi+1} · ${dayDone(wi,di)}/${total} steps`;
+  updateGlobal();
+}
+
+let pendingDetailRating={effort:5,fatigue:5,excite:5};
+function updateDetailRating(key,val){
+  val=parseInt(val);pendingDetailRating[key]=val;
+  const cols={effort:'#ef4444',fatigue:'#f59e0b',excite:'#e8ff00'};
+  const pct=((val-1)/9*100).toFixed(1);
+  const sl=document.getElementById('drs-'+key);
+  if(sl)sl.style.background=`linear-gradient(90deg,${cols[key]} ${pct}%,var(--n3) ${pct}%)`;
+  const vEl=document.getElementById('drv-'+key);
+  if(vEl){vEl.textContent=val;vEl.style.color=cols[key];vEl.classList.add('pop');setTimeout(()=>vEl.classList.remove('pop'),250);}
+}
+
+function saveDetailBike(wi,di){
+  const dk=dKey(wi,di);
+  const day=PLAN[wi].days[di];
+  state.bikeLogs[dk]={
+    dist:parseFloat(document.getElementById('det-bike-dist').value)||0,
+    time:parseInt(document.getElementById('det-bike-time').value)||0,
+    label:`W${wi+1} ${day.day} ${day.disc||day.discipline}`,
+    week:wi+1,day:day.day
+  };
+  save();
+  syncToSheets({
+    type:'BIKE', key:dk,
+    week:state.bikeLogs[dk].week, day:state.bikeLogs[dk].day,
+    label:state.bikeLogs[dk].label,
+    dist:state.bikeLogs[dk].dist, time:state.bikeLogs[dk].time
+  });
+}
+
+function saveDetailRating(wi,di){
+  state.ratings[dKey(wi,di)]={...pendingDetailRating};
+  save();
+  const week=PLAN[wi], day=PLAN[wi].days[di];
+  syncToSheets({
+    type:'RATING', key:dKey(wi,di),
+    week:week.week, day:day.day, discipline:day.discipline,
+    effort:pendingDetailRating.effort, fatigue:pendingDetailRating.fatigue, excite:pendingDetailRating.excite
+  });
+  showToast('Rating saved ✓ Synced');
+}
+
+// ── Render STATS ──────────────────────────────────────────────────────────
+function renderStats(){
+  const total=totalSteps(),done=doneCount(),pct=Math.round(done/total*100);
+  const daysLeft=Math.max(0,Math.ceil((new Date('2026-07-19')-new Date())/86400000));
+
+  const discTotals={Swim:{done:0,total:0},Bike:{done:0,total:0},Run:{done:0,total:0},Brick:{done:0,total:0}};
+  PLAN.forEach((w,wi)=>w.days.forEach((d,di)=>{
+    const disc=d.disc||d.discipline;
+    if(discTotals[disc]){
+      discTotals[disc].total+=d.steps.length;
+      discTotals[disc].done+=dayDone(wi,di);
+    }
+  }));
+
+  const allRatings=Object.values(state.ratings);
+  const rCount=allRatings.length;
+  const avgE=rCount?Math.round(allRatings.reduce((a,r)=>a+r.effort,0)/rCount*10)/10:null;
+  const avgF=rCount?Math.round(allRatings.reduce((a,r)=>a+r.fatigue,0)/rCount*10)/10:null;
+  const avgX=rCount?Math.round(allRatings.reduce((a,r)=>a+r.excite,0)/rCount*10)/10:null;
+
+  const bikeEntries=Object.values(state.bikeLogs).filter(b=>b.dist>0||b.time>0);
+  const totalDist=bikeEntries.reduce((a,b)=>a+(b.dist||0),0);
+  const totalTime=bikeEntries.reduce((a,b)=>a+(b.time||0),0);
+
+  const discBars=Object.entries(discTotals).map(([disc,s])=>{
+    const dpct=s.total?Math.round(s.done/s.total*100):0;
+    return `<div class="disc-bar">
+      <div class="disc-bar-lbl"><span>${DISC_ICON[disc]} ${disc}</span><span style="color:var(--mu)">${s.done}/${s.total} · ${dpct}%</span></div>
+      <div class="disc-bar-track"><div class="disc-bar-fill" style="width:${dpct}%;background:${DISC_BAR_COLOR[disc]}"></div></div>
+    </div>`;
+  }).join('');
+
+  const weekBars=PLAN.map((w,wi)=>{
+    const pc=PHASE_COLOR[w.phase]||'#e8ff00';
+    const wt=weekTotal(wi),wd=weekDone(wi);
+    const wpct=wt?Math.round(wd/wt*100):0;
+    return `<div class="disc-bar">
+      <div class="disc-bar-lbl"><span style="color:${pc}">Week ${w.week} — ${w.phase}</span><span style="color:var(--mu)">${wd}/${wt} · ${wpct}%</span></div>
+      <div class="disc-bar-track"><div class="disc-bar-fill" style="width:${wpct}%;background:${pc}"></div></div>
+    </div>`;
+  }).join('');
+
+  const bikeRows=bikeEntries.length
+    ?bikeEntries.map(b=>`<div class="bike-stat-row"><span style="color:var(--mu)">${b.label}</span><span style="color:var(--acc)">${b.dist>0?b.dist.toFixed(1)+' km':''}${b.dist>0&&b.time>0?' · ':''}${b.time>0?b.time+' min':''}</span></div>`).join('')
+    :`<div style="font-size:12px;color:var(--mu);padding:8px 0">No bike sessions logged yet.</div>`;
+
+  document.getElementById('view-stats').innerHTML=`
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-val">${pct}%</div><div class="stat-lbl">Overall Complete</div></div>
+      <div class="stat-card"><div class="stat-val">${done}</div><div class="stat-lbl">Steps Done of ${total}</div></div>
+      <div class="stat-card"><div class="stat-val">${daysLeft}</div><div class="stat-lbl">Days to Race Day</div></div>
+      <div class="stat-card"><div class="stat-val">${rCount}</div><div class="stat-lbl">Workouts Rated</div></div>
+    </div>
+    <div class="sec-title-stats">Workout Ratings (avg)</div>
+    <div class="rating-summary">
+      <div class="rs-card"><div class="rs-val" style="color:#ef4444">${avgE??'—'}</div><div class="rs-lbl">💪 Effort</div></div>
+      <div class="rs-card"><div class="rs-val" style="color:#f59e0b">${avgF??'—'}</div><div class="rs-lbl">😴 Fatigue</div></div>
+      <div class="rs-card"><div class="rs-val" style="color:#e8ff00">${avgX??'—'}</div><div class="rs-lbl">🔥 Excite</div></div>
+    </div>
+    <div class="sec-title-stats">Bike Log</div>
+    <div class="stat-grid" style="margin-bottom:9px">
+      <div class="stat-card"><div class="stat-val">${totalDist.toFixed(1)}</div><div class="stat-lbl">Total km ridden</div></div>
+      <div class="stat-card"><div class="stat-val">${totalTime}</div><div class="stat-lbl">Total min on bike</div></div>
+    </div>
+    <div style="background:var(--n2);border-radius:11px;padding:10px 13px;border:1px solid var(--sl);margin-bottom:14px">${bikeRows}</div>
+    <div class="sec-title-stats">By Discipline</div>${discBars}
+    <div class="sec-title-stats" style="margin-top:14px">Weekly Progress</div>${weekBars}`;
+}
+
+// ── Notifications ─────────────────────────────────────────────────────────
+function checkNotifPrompt(){
+  if(!('Notification' in window))return;
+  if(Notification.permission==='default')document.getElementById('notif-banner').classList.add('show');
+}
+async function requestNotifications(){
+  const perm=await Notification.requestPermission();
+  document.getElementById('notif-banner').classList.remove('show');
+  if(perm==='granted'){
+    scheduleNotifications();
+    showToast('🔔 Notifications enabled!');
+  }
+}
+function scheduleNotifications(){
+  if('serviceWorker' in navigator&&navigator.serviceWorker.controller){
+    navigator.serviceWorker.controller.postMessage({
+      type:'SCHEDULE_NOTIFICATIONS',
+      plan:PLAN,
+      times:state.notifTimes
+    });
+  }
+}
+function saveNotifTimes(){
+  state.notifTimes={
+    eve:document.getElementById('eve-time').value,
+    morn:document.getElementById('morn-time').value
+  };
+  save();
+  scheduleNotifications();
+  const e=state.notifTimes.eve,m=state.notifTimes.morn;
+  showToast(`Alerts set: ${fmt(m)} & ${fmt(e)}`);
+}
+function fmt(t){const[h,m]=t.split(':').map(Number);return`${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`}
+
+// ── Navigation ────────────────────────────────────────────────────────────
+function switchView(viewId,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('view-'+viewId).classList.add('active');
+  btn.classList.add('active');
+  currentView=viewId;
+  if(viewId==='today')renderToday();
+  if(viewId==='plan')renderPlan();
+  if(viewId==='stats')renderStats();
+  if(viewId==='alerts'){
+    document.getElementById('eve-time').value=state.notifTimes.eve||'20:00';
+    document.getElementById('morn-time').value=state.notifTimes.morn||'07:00';
+  }
+}
+
+// ── Toast ─────────────────────────────────────────────────────────────────
+function showToast(msg){
+  let t=document.getElementById('_toast');
+  if(!t){t=document.createElement('div');t.id='_toast';Object.assign(t.style,{
+    position:'fixed',bottom:'80px',left:'50%',transform:'translateX(-50%)',
+    background:'var(--n3)',border:'1px solid var(--acc)',color:'var(--tx)',
+    padding:'10px 18px',borderRadius:'10px',fontSize:'13px',fontWeight:'600',
+    zIndex:'999',whiteSpace:'nowrap',opacity:'0',transition:'opacity .3s',
+    fontFamily:"'DM Sans', sans-serif"
+  });document.body.appendChild(t);}
+  t.textContent=msg;t.style.opacity='1';
+  setTimeout(()=>t.style.opacity='0',2800);
+}
+
+// ── Service Worker ────────────────────────────────────────────────────────
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js')
+    .then(()=>console.log('SW registered'))
+    .catch(e=>console.log('SW error:',e));
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+pendingRating={...( state.ratings[dKey(...(findToday()?[findToday().wi,findToday().di]:[0,0]))]||{effort:5,fatigue:5,excite:5})};
+updateGlobal();
+renderToday();
+checkNotifPrompt();
+
+// ── Google Sheets Sync ────────────────────────────────────────────────────
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxHr1GIJNfraZEChudbG7xiuVc9Ni5w8CeGGCzlRO0-wjlmu1eXCwkoPcEfaeIstlCxdQ/exec';
+let syncQueue = [];
+let syncing = false;
+
+async function syncToSheets(payload) {
+  syncQueue.push(payload);
+  if (!syncing) processQueue();
+}
+
+async function processQueue() {
+  if (syncQueue.length === 0) { syncing = false; return; }
+  syncing = true;
+  const payload = syncQueue.shift();
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch(e) {
+    console.log('Sync failed, will retry later:', e);
+    syncQueue.unshift(payload); // put it back
+  }
+  setTimeout(processQueue, 500);
+}
+
+async function loadFromSheets() {
+  try {
+    showSyncStatus('syncing');
+    const res = await fetch(SHEETS_URL + '?t=' + Date.now());
+    const data = await res.json();
+
+    // Restore completed steps
+    if (data.completed) {
+      Object.entries(data.completed).forEach(([key, row]) => {
+        if (row['Completed'] === 'YES') state.completed[key] = true;
+        else if (row['Completed'] === 'NO') delete state.completed[key];
+      });
+    }
+
+    // Restore ratings
+    if (data.ratings) {
+      Object.entries(data.ratings).forEach(([key, row]) => {
+        state.ratings[key] = {
+          effort:  parseInt(row['Effort (1-10)'])  || 5,
+          fatigue: parseInt(row['Fatigue (1-10)']) || 5,
+          excite:  parseInt(row['Excitement (1-10)']) || 5,
+        };
+      });
+    }
+
+    // Restore bike logs
+    if (data.bikeLogs) {
+      Object.entries(data.bikeLogs).forEach(([key, row]) => {
+        state.bikeLogs[key] = {
+          dist:  parseFloat(row['Distance (km)']) || 0,
+          time:  parseInt(row['Time (min)'])      || 0,
+          label: row['Session'] || '',
+          week:  row['Week']    || '',
+          day:   row['Day']     || '',
+        };
+      });
+    }
+
+    save();
+    updateGlobal();
+    renderToday();
+    showSyncStatus('ok');
+  } catch(e) {
+    console.log('Load from sheets failed:', e);
+    showSyncStatus('offline');
+  }
+}
+
+function showSyncStatus(status) {
+  let el = document.getElementById('_sync-dot');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = '_sync-dot';
+    Object.assign(el.style, {
+      position: 'fixed', top: '10px', right: '10px',
+      width: '8px', height: '8px', borderRadius: '50%',
+      zIndex: '999', transition: 'background .3s'
+    });
+    document.body.appendChild(el);
+  }
+  el.style.background = status === 'ok' ? '#e8ff00' : status === 'syncing' ? '#f59e0b' : '#666';
+  el.title = status === 'ok' ? 'Synced to Google Sheets' : status === 'syncing' ? 'Syncing...' : 'Offline — saved locally';
+}
+
+// ── Load on start ──
+loadFromSheets();
+</script>
+</body>
+</html>
+<!-- SYNC PATCH - appended -->
