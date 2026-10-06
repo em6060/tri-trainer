@@ -1,12 +1,12 @@
 {
-  "name": "Tri Trainer — Sprint Triathlon Plan",
-  "short_name": "Tri Trainer",
-  "description": "Your 8-week sprint triathlon training plan with notifications and progress tracking",
+  "name": "70.3 Trainer — Half Ironman Plan",
+  "short_name": "70.3 Trainer",
+  "description": "Your 22-week 70.3 Half Ironman training plan with notifications and progress tracking",
   "start_url": "/tri-trainer/",
   "scope": "/tri-trainer/",
   "display": "standalone",
-  "background_color": "#080e1a",
-  "theme_color": "#080e1a",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
   "orientation": "portrait",
   "icons": [
     {
@@ -28,7 +28,7 @@
       "name": "Today's Workout",
       "short_name": "Today",
       "description": "Jump to today's session",
-      "url": "/?view=today",
+      "url": "/tri-trainer/?view=today",
       "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
     }
   ]
