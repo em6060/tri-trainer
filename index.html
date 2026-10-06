@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#0d0d0d"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<meta name="apple-mobile-web-app-title" content="Tri Trainer"/>
-<meta name="description" content="Your personal Sprint Triathlon Training Plan"/>
+<meta name="apple-mobile-web-app-title" content="70.3 Trainer"/>
+<meta name="description" content="Your personal 70.3 Half Ironman Training Plan"/>
 <link rel="manifest" href="manifest.json"/>
-<title>Tri Trainer</title>
+<title>70.3 Trainer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -35,10 +35,6 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
 #progress-bar-wrap{margin-top:9px;background:var(--n3);border-radius:99px;height:3px}
 #progress-bar-fill{height:100%;border-radius:99px;background:var(--acc);transition:width .6s cubic-bezier(.4,0,.2,1);width:0%}
 
-/* Notification banner */
-#notif-banner{display:none;margin:10px 18px 0;background:var(--n3);border:1px solid var(--sl);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--mu);align-items:center;gap:10px}
-#notif-banner.show{display:flex}
-#notif-btn{margin-left:auto;background:var(--acc);color:#000;border:none;border-radius:7px;padding:6px 12px;font-size:11px;font-weight:800;cursor:pointer;white-space:nowrap;font-family:inherit}
 
 /* Bottom nav */
 #bottom-nav{flex-shrink:0;background:var(--n2);border-top:1px solid var(--sl);display:flex;padding-bottom:var(--safe-bot)}
@@ -80,13 +76,31 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
 .step-key{color:var(--acc)}
 
 /* Bike log */
-.bike-log{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
+.log-card{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
 .section-title{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
-.bike-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.bike-field label{display:block;font-size:10px;color:var(--mu);margin-bottom:4px}
-.bike-field input{width:100%;background:var(--n3);border:1px solid var(--sl);border-radius:8px;padding:8px 10px;color:var(--tx);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
-.bike-field input:focus{border-color:var(--acc)}
-.bike-field input::placeholder{color:var(--dm);font-weight:400}
+.log-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.log-field label{display:block;font-size:10px;color:var(--mu);margin-bottom:4px}
+.log-field input{width:100%;background:var(--n3);border:1px solid var(--sl);border-radius:8px;padding:8px 10px;color:var(--tx);font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s}
+.log-field input:focus{border-color:var(--acc)}
+.log-field input::placeholder{color:var(--dm);font-weight:400}
+
+/* Step group headers (Swim / Run / Bike / Strength / Mobility / Stretch) */
+.step-group-hdr{display:flex;align-items:center;gap:7px;margin:16px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--n3)}
+.step-group-hdr:first-child{margin-top:0}
+.step-group-icon{font-size:15px}
+.step-group-name{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.step-group-count{margin-left:auto;font-size:10px;color:var(--mu);font-weight:600}
+
+/* Legend / glossary disclosure */
+.legend{background:var(--n2);border:1px solid var(--sl);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.legend summary{padding:11px 14px;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--acc);cursor:pointer;list-style:none;display:flex;align-items:center;gap:7px;-webkit-user-select:none;user-select:none}
+.legend summary::-webkit-details-marker{display:none}
+.legend summary::after{content:'▾';margin-left:auto;color:var(--mu);transition:transform .2s}
+.legend[open] summary::after{transform:rotate(180deg)}
+.legend-body{padding:2px 14px 13px;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.legend-item{font-size:11px;line-height:1.4;color:var(--mu)}
+.legend-item b{color:var(--tx);font-weight:700}
+@media(max-width:380px){.legend-body{grid-template-columns:1fr}}
 
 /* Rating card */
 .rating-card{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
@@ -145,14 +159,6 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
 .bike-stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--sl);font-size:12px}
 .bike-stat-row:last-child{border-bottom:none}
 
-/* Notif settings */
-.notif-card{background:var(--n2);border:1px solid var(--sl);border-radius:12px;padding:13px 14px;margin-bottom:9px}
-.notif-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.notif-row:last-of-type{margin-bottom:12px}
-.notif-lbl{font-size:13px;color:var(--tx)}
-.notif-sub{font-size:10px;color:var(--mu);margin-top:2px}
-.notif-time{background:var(--n3);border:1px solid var(--sl);border-radius:8px;padding:6px 10px;color:var(--tx);font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer}
-.notif-time:focus{border-color:var(--acc)}
 
 @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
 .pop{animation:pop .25s ease}
@@ -165,8 +171,8 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
   <div id="header">
     <div id="header-top">
       <div>
-        <div id="app-title">TRI TRAINER</div>
-        <div id="app-subtitle">🏊 750m · 🚴 20km · 🏃 5km · Jul 19</div>
+        <div id="app-title">70.3 TRAINER</div>
+        <div id="app-subtitle">🏊 1.2mi · 🚴 56mi · 🏃 13.1mi</div>
       </div>
       <div>
         <div id="overall-pct">0%</div>
@@ -176,34 +182,10 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
     <div id="progress-bar-wrap"><div id="progress-bar-fill"></div></div>
   </div>
 
-  <div id="notif-banner">
-    <span>🔔 Enable workout notifications?</span>
-    <button id="notif-btn" onclick="requestNotifications()">Enable</button>
-  </div>
-
   <div id="content">
     <div id="view-today" class="view active"></div>
     <div id="view-plan" class="view"></div>
     <div id="view-stats" class="view"></div>
-    <div id="view-alerts" class="view">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--acc);margin-bottom:14px">Notification Settings</div>
-      <div class="notif-card">
-        <div class="section-title" style="color:var(--acc)">Workout Alerts</div>
-        <div class="notif-row">
-          <div><div class="notif-lbl">🌙 Evening Reminder</div><div class="notif-sub">Night before your workout</div></div>
-          <input type="time" class="notif-time" id="eve-time" value="20:00"/>
-        </div>
-        <div class="notif-row">
-          <div><div class="notif-lbl">☀️ Morning Alert</div><div class="notif-sub">Day of your workout</div></div>
-          <input type="time" class="notif-time" id="morn-time" value="07:00"/>
-        </div>
-        <button class="save-btn" onclick="saveNotifTimes()">SAVE TIMES</button>
-      </div>
-      <div class="notif-card">
-        <div class="section-title" style="color:var(--mu)">How It Works</div>
-        <p style="font-size:12px;color:var(--mu);line-height:1.7">After adding the app to your Android home screen, tap <strong style="color:var(--tx)">Enable Notifications</strong> when prompted at the top. You'll get an alert at your chosen times — the night before and the morning of each workout day.<br><br>Rest days and Mondays are always skipped.</p>
-      </div>
-    </div>
   </div>
 
   <div id="day-detail">
@@ -218,7 +200,6 @@ html,body{height:100%;overflow:hidden;background:var(--n);font-family:'DM Sans',
     <button class="nav-btn active" onclick="switchView('today',this)"><span class="icon">📅</span>TODAY</button>
     <button class="nav-btn" onclick="switchView('plan',this)"><span class="icon">📋</span>PLAN</button>
     <button class="nav-btn" onclick="switchView('stats',this)"><span class="icon">📊</span>STATS</button>
-    <button class="nav-btn" onclick="switchView('alerts',this)"><span class="icon">🔔</span>ALERTS</button>
   </div>
 </div>
 
@@ -233,7 +214,7 @@ const HYPE=[
   "Navy SEALs have a rule: when your mind says quit, you're only 40% done. The last 60% is where character is built. Where champions separate from the crowd. Get there.",
   "Suffering is a choice only when you stop. Keep moving and it becomes progress. The pain you feel today is the strength you'll own tomorrow. Don't waste it.",
   "You will not rise to the level of your goals. You will fall to the level of your systems. Show up every day without negotiation. That is your system. Build it now.",
-  "There are no shortcuts to July 19. Every missed session is a debt your body will pay on race day with interest. Every session you complete is armor. Put the armor on.",
+  "There are no shortcuts to race day. Every missed session is a debt your body will pay on race day with interest. Every session you complete is armor. Put the armor on.",
   "Goggins says: stay hard. That's not motivation — motivation fades. That's a standard. A decision made in advance that no matter what, you will not fold. Make that decision right now.",
   "Les Brown: it's not over until you win. You haven't won yet. That means it's not over. That means you get back up. That means you put in the work. One more time.",
   "The SEAL Creed: I will never quit. I persevere and thrive on adversity. I am physically harder and mentally stronger. Be harder. Be stronger. Starting right now.",
@@ -247,16 +228,120 @@ const DISC_COLOR={
   Bike:{bg:'#161000',bd:'#3d2e00',pill:'#d97706',tx:'#fff'},
   Run:{bg:'#0a1f0f',bd:'#14532d',pill:'#16a34a',tx:'#fff'},
   Brick:{bg:'#1a0d2e',bd:'#3b1f63',pill:'#7c3aed',tx:'#fff'},
+  Mobility:{bg:'#0c1f1c',bd:'#164e45',pill:'#14b8a6',tx:'#fff'},
+  Strength:{bg:'#1f1206',bd:'#4a2e0a',pill:'#f97316',tx:'#fff'},
   REST:{bg:'#111',bd:'#222',pill:'#334155',tx:'#94a3b8'},
   RACE:{bg:'#1f0505',bd:'#450a0a',pill:'#dc2626',tx:'#fff'},
 };
-const DISC_ICON={Swim:'🏊',Bike:'🚴',Run:'🏃',Brick:'⚡',REST:'😴',RACE:'🏁'};
-const PHASE_COLOR={'Return to Form':'#2563eb',Build:'#d97706','Peak Build':'#dc2626',Taper:'#7c3aed','Race Week':'#e8ff00'};
-const DISC_BAR_COLOR={Swim:'#2563eb',Bike:'#d97706',Run:'#16a34a',Brick:'#7c3aed'};
+const DISC_ICON={Swim:'🏊',Bike:'🚴',Run:'🏃',Brick:'⚡',Mobility:'🧘',Strength:'🏋️',Stretch:'🤸',REST:'😴',RACE:'🏁'};
+const PHASE_COLOR={Base:'#2563eb',Build:'#d97706',Peak:'#dc2626',Taper:'#7c3aed','Race Week':'#e8ff00'};
+const DISC_BAR_COLOR={Swim:'#2563eb',Bike:'#d97706',Run:'#16a34a',Brick:'#7c3aed',Mobility:'#14b8a6',Strength:'#f97316',Stretch:'#64748b'};
+
+// ── Discipline grouping + logging config ────────────────────────────────────
+const GROUP_META={
+  Swim:{icon:'🏊',name:'Swim'}, Bike:{icon:'🚴',name:'Bike'}, Run:{icon:'🏃',name:'Run'},
+  Strength:{icon:'🏋️',name:'Strength'}, Mobility:{icon:'🧘',name:'Mobility'}, Stretch:{icon:'🤸',name:'Stretch'},
+  RACE:{icon:'🏁',name:'Race'}, Brick:{icon:'⚡',name:'Brick'}
+};
+const LOG_UNITS={Swim:{label:'Swim',unit:'yd',icon:'🏊'},Bike:{label:'Bike',unit:'mi',icon:'🚴'},Run:{label:'Run',unit:'mi',icon:'🏃'}};
+const LOG_ORDER=['Swim','Bike','Run'];
+
+function presentLogDiscs(day){
+  if(day.discipline==='RACE')return LOG_ORDER.slice();
+  const set=new Set(day.steps.map(s=>s.disc));
+  return LOG_ORDER.filter(d=>set.has(d));
+}
+
+function legendHTML(){
+  return `<details class="legend">
+    <summary>📖 Workout Terms — WU, MS, RI &amp; more</summary>
+    <div class="legend-body">
+      <div class="legend-item"><b>WU</b> — Warm-Up, easy effort to start</div>
+      <div class="legend-item"><b>MS</b> — Main Set, the key workout block</div>
+      <div class="legend-item"><b>CD</b> — Cool-Down, easy effort to finish</div>
+      <div class="legend-item"><b>RI</b> — Rest Interval between reps (mm:ss)</div>
+      <div class="legend-item"><b>VO2max</b> — Max effort, ~95–100% max HR</div>
+      <div class="legend-item"><b>Threshold</b> — Comfortably hard, ~85–90% max HR</div>
+      <div class="legend-item"><b>Moderate</b> — Conversational pace, ~70–80% max HR</div>
+      <div class="legend-item"><b>Low aerobic</b> — Very easy, ~60–70% max HR</div>
+      <div class="legend-item"><b>Speed</b> — Fast but controlled, ~90–95% max HR</div>
+      <div class="legend-item"><b>Recovery</b> — Minimal effort, active only</div>
+      <div class="legend-item"><b>x N</b> — Repeat N times (4×100 = 100yd ×4)</div>
+      <div class="legend-item"><b>@</b> — At a specific intensity</div>
+      <div class="legend-item"><b>build/descend</b> — Get faster each rep</div>
+      <div class="legend-item"><b>easy/hard</b> — Alternate pace within one rep</div>
+      <div class="legend-item"><b>Strides</b> — Short fast bursts, ~20 sec</div>
+      <div class="legend-item"><b>Brick</b> — Bike → Run back to back, no break</div>
+      <div class="legend-item"><b>Mobility</b> — Joint/muscle activation, not hard effort</div>
+      <div class="legend-item"><b>Strength</b> — Gym-based resistance training</div>
+    </div>
+  </details>`;
+}
+
+function renderGroupedSteps(wi,di,toggleFn){
+  const day=PLAN[wi].days[di];
+  let html='';
+  let lastDisc=null;
+  day.steps.forEach((step,si)=>{
+    const disc=step.disc||day.discipline;
+    if(disc!==lastDisc){
+      const meta=GROUP_META[disc]||{icon:'•',name:disc};
+      const groupTotal=day.steps.filter(s=>(s.disc||day.discipline)===disc).length;
+      html+=`<div class="step-group-hdr"><span class="step-group-icon">${meta.icon}</span><span class="step-group-name">${meta.name}</span><span class="step-group-count">${groupTotal} ${groupTotal===1?'item':'items'}</span></div>`;
+      lastDisc=disc;
+    }
+    const done=state.completed[sKey(wi,di,si)];
+    const isKey=step.label.startsWith('⭐')||step.label.startsWith('⏱');
+    html+=`<div class="step-card${done?' done':''}" onclick="${toggleFn}(${wi},${di},${si},this)">
+      <div class="chk${done?' on':''}">${done?'✓':''}</div>
+      <div style="flex:1">
+        <div class="step-lbl${isKey?' step-key':''}">${step.label}</div>
+        ${step.note?`<div class="step-note">${step.note}</div>`:''}
+      </div>
+    </div>`;
+  });
+  return html;
+}
+
+function renderLogCards(wi,di,prefix){
+  const day=PLAN[wi].days[di];
+  const discs=presentLogDiscs(day);
+  if(!discs.length)return '';
+  const dk=dKey(wi,di);
+  const saved=state.logs[dk]||{};
+  return discs.map(disc=>{
+    const meta=LOG_UNITS[disc];
+    const s=saved[disc]||{};
+    return `<div class="log-card">
+      <div class="section-title" style="color:${DISC_COLOR[disc].pill}">${meta.icon} ${meta.label} Log</div>
+      <div class="log-fields">
+        <div class="log-field"><label>Distance (${meta.unit})</label>
+          <input type="number" id="${prefix}-${disc}-dist" placeholder="0.0" step="0.1" min="0" value="${s.dist||''}" oninput="saveLog(${wi},${di},'${disc}','${prefix}')"/></div>
+        <div class="log-field"><label>Time (min)</label>
+          <input type="number" id="${prefix}-${disc}-time" placeholder="0" step="1" min="0" value="${s.time||''}" oninput="saveLog(${wi},${di},'${disc}','${prefix}')"/></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function saveLog(wi,di,disc,prefix){
+  const dk=dKey(wi,di);
+  const day=PLAN[wi].days[di];
+  if(!state.logs[dk])state.logs[dk]={};
+  const dist=parseFloat(document.getElementById(`${prefix}-${disc}-dist`).value)||0;
+  const time=parseInt(document.getElementById(`${prefix}-${disc}-time`).value)||0;
+  state.logs[dk][disc]={dist,time,week:wi+1,day:day.day,label:`W${wi+1} ${day.day} ${disc}`};
+  save();
+  syncToSheets({
+    type:'LOG', key:`${dk}-${disc}`, dk,
+    week:wi+1, day:day.day, discipline:disc, unit:LOG_UNITS[disc].unit,
+    label:state.logs[dk][disc].label, dist, time
+  });
+}
 
 // ── Persistent state ──────────────────────────────────────────────────────
-const SK='tri_v2';
-let state=JSON.parse(localStorage.getItem(SK)||'{"completed":{},"ratings":{},"bikeLogs":{},"notifTimes":{"eve":"20:00","morn":"07:00"}}');
+const SK='tri703_v1';
+let state=JSON.parse(localStorage.getItem(SK)||'{"completed":{},"ratings":{},"logs":{}}');
 function save(){localStorage.setItem(SK,JSON.stringify(state))}
 
 // ── Keys ──────────────────────────────────────────────────────────────────
@@ -296,9 +381,12 @@ function renderToday(){
 
   if(!loc){
     const now=new Date();
-    const msg=now<new Date('2026-05-26')
-      ?'<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🚴</div><div style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">Plan Starts Tomorrow</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Your first workout is Tuesday May 26.<br>A bike session. Be ready.</div></div>'
-      :'<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🏁</div><div style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">You Did It</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Race day complete. You\'re a triathlete.</div></div>';
+    const firstDay=PLAN[0].days[0];
+    const firstDayDate=new Date(firstDay.date+'T00:00:00');
+    const firstDayLabel=firstDayDate.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+    const msg=now<firstDayDate
+      ?`<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🧘</div><div style="font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">Plan Starts Soon</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Your first session is ${firstDayLabel}.<br>${firstDay.type}. Be ready.</div></div>`
+      :'<div style="text-align:center;padding:30px 0"><div style="font-size:48px;margin-bottom:14px">🏁</div><div style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;letter-spacing:1px;color:var(--acc)">You Did It</div><div style="font-size:13px;color:var(--mu);margin-top:8px">Race day complete. You\'re a Half Ironman.</div></div>';
     el.innerHTML=`<div class="hype-banner"><div class="hype-label">Daily Mindset</div><div class="hype-msg">"${getHype()}"</div></div>${msg}`;
     return;
   }
@@ -310,10 +398,7 @@ function renderToday(){
   const icon=DISC_ICON[day.discipline]||'•';
   const done=dayDone(wi,di);
   const total=day.steps.length;
-  const isBike=day.discipline==='Bike'||day.discipline==='Brick';
-  const dk=dKey(wi,di);
-  const savedBike=state.bikeLogs[dk]||{};
-  const savedRating=state.ratings[dk]||{effort:5,fatigue:5,excite:5};
+  const savedRating=state.ratings[dKey(wi,di)]||{effort:5,fatigue:5,excite:5};
 
   let html=`
     <div class="hype-banner"><div class="hype-label">Daily Mindset</div><div class="hype-msg">"${getHype()}"</div></div>
@@ -327,31 +412,10 @@ function renderToday(){
         <div class="day-type">${day.type}</div>
         <div class="day-prog">${done} of ${total} steps complete</div>
       </div>
-    </div>`;
-
-  day.steps.forEach((step,si)=>{
-    const done=state.completed[sKey(wi,di,si)];
-    const isKey=step.label.startsWith('⭐')||step.label.startsWith('⏱');
-    html+=`<div class="step-card${done?' done':''} slide-up" onclick="toggleStep(${wi},${di},${si},this)" style="animation-delay:${si*.04}s">
-      <div class="chk${done?' on':''}">${done?'✓':''}</div>
-      <div style="flex:1">
-        <div class="step-lbl${isKey?' step-key':''}">${step.label}</div>
-        ${step.note?`<div class="step-note">${step.note}</div>`:''}
-      </div>
-    </div>`;
-  });
-
-  if(isBike){
-    html+=`<div class="bike-log">
-      <div class="section-title" style="color:var(--bk)">🚴 Bike Log</div>
-      <div class="bike-fields">
-        <div class="bike-field"><label>Distance (km)</label>
-          <input type="number" id="bike-dist" placeholder="0.0" step="0.1" min="0" value="${savedBike.dist||''}" oninput="saveBikeLog(${wi},${di})"/></div>
-        <div class="bike-field"><label>Time (min)</label>
-          <input type="number" id="bike-time" placeholder="0" step="1" min="0" value="${savedBike.time||''}" oninput="saveBikeLog(${wi},${di})"/></div>
-      </div>
-    </div>`;
-  }
+    </div>
+    ${legendHTML()}
+    ${renderGroupedSteps(wi,di,'toggleStep')}
+    ${renderLogCards(wi,di,'log')}`;
 
   html+=`<div class="rating-card">
     <div class="section-title" style="color:var(--mu)">Rate This Workout</div>
@@ -415,24 +479,6 @@ function toggleStep(wi,di,si,card){
   const prog=document.querySelector('.day-prog');
   if(prog)prog.textContent=`${dd} of ${total} steps complete`;
   updateGlobal();
-}
-
-function saveBikeLog(wi,di){
-  const dk=dKey(wi,di);
-  const day=PLAN[wi].days[di];
-  state.bikeLogs[dk]={
-    dist:parseFloat(document.getElementById('bike-dist').value)||0,
-    time:parseInt(document.getElementById('bike-time').value)||0,
-    label:`W${wi+1} ${day.day} ${day.discipline}`,
-    week:wi+1, day:day.day
-  };
-  save();
-  syncToSheets({
-    type:'BIKE', key:dk,
-    week:state.bikeLogs[dk].week, day:state.bikeLogs[dk].day,
-    label:state.bikeLogs[dk].label,
-    dist:state.bikeLogs[dk].dist, time:state.bikeLogs[dk].time
-  });
 }
 
 let pendingRating={effort:5,fatigue:5,excite:5};
@@ -532,10 +578,7 @@ function renderDetail(){
   const icon=DISC_ICON[disc]||'•';
   const done=dayDone(wi,di);
   const total=day.steps.length;
-  const isBike=disc==='Bike'||disc==='Brick';
-  const dk=dKey(wi,di);
-  const savedBike=state.bikeLogs[dk]||{};
-  const savedRating=state.ratings[dk]||{effort:5,fatigue:5,excite:5};
+  const savedRating=state.ratings[dKey(wi,di)]||{effort:5,fatigue:5,excite:5};
 
   document.getElementById('detail-header-content').innerHTML=`
     <div style="display:flex;align-items:center;gap:12px">
@@ -546,30 +589,7 @@ function renderDetail(){
       </div>
     </div>`;
 
-  let html='';
-  day.steps.forEach((step,si)=>{
-    const d=state.completed[sKey(wi,di,si)];
-    const isKey=step.label.startsWith('⭐')||step.label.startsWith('⏱');
-    html+=`<div class="step-card${d?' done':''}" onclick="toggleDetailStep(${wi},${di},${si},this)">
-      <div class="chk${d?' on':''}">${d?'✓':''}</div>
-      <div style="flex:1">
-        <div class="step-lbl${isKey?' step-key':''}">${step.label}</div>
-        ${step.note?`<div class="step-note">${step.note}</div>`:''}
-      </div>
-    </div>`;
-  });
-
-  if(isBike){
-    html+=`<div class="bike-log">
-      <div class="section-title" style="color:var(--bk)">🚴 Bike Log</div>
-      <div class="bike-fields">
-        <div class="bike-field"><label>Distance (km)</label>
-          <input type="number" id="det-bike-dist" placeholder="0.0" step="0.1" min="0" value="${savedBike.dist||''}" oninput="saveDetailBike(${wi},${di})"/></div>
-        <div class="bike-field"><label>Time (min)</label>
-          <input type="number" id="det-bike-time" placeholder="0" step="1" min="0" value="${savedBike.time||''}" oninput="saveDetailBike(${wi},${di})"/></div>
-      </div>
-    </div>`;
-  }
+  let html=`${legendHTML()}${renderGroupedSteps(wi,di,'toggleDetailStep')}${renderLogCards(wi,di,'detlog')}`;
 
   html+=`<div class="rating-card">
     <div class="section-title" style="color:var(--mu)">Rate This Workout</div>
@@ -635,24 +655,6 @@ function updateDetailRating(key,val){
   if(vEl){vEl.textContent=val;vEl.style.color=cols[key];vEl.classList.add('pop');setTimeout(()=>vEl.classList.remove('pop'),250);}
 }
 
-function saveDetailBike(wi,di){
-  const dk=dKey(wi,di);
-  const day=PLAN[wi].days[di];
-  state.bikeLogs[dk]={
-    dist:parseFloat(document.getElementById('det-bike-dist').value)||0,
-    time:parseInt(document.getElementById('det-bike-time').value)||0,
-    label:`W${wi+1} ${day.day} ${day.disc||day.discipline}`,
-    week:wi+1,day:day.day
-  };
-  save();
-  syncToSheets({
-    type:'BIKE', key:dk,
-    week:state.bikeLogs[dk].week, day:state.bikeLogs[dk].day,
-    label:state.bikeLogs[dk].label,
-    dist:state.bikeLogs[dk].dist, time:state.bikeLogs[dk].time
-  });
-}
-
 function saveDetailRating(wi,di){
   state.ratings[dKey(wi,di)]={...pendingDetailRating};
   save();
@@ -668,15 +670,19 @@ function saveDetailRating(wi,di){
 // ── Render STATS ──────────────────────────────────────────────────────────
 function renderStats(){
   const total=totalSteps(),done=doneCount(),pct=Math.round(done/total*100);
-  const daysLeft=Math.max(0,Math.ceil((new Date('2026-07-19')-new Date())/86400000));
+  const lastWeek=PLAN[PLAN.length-1];
+  const raceDate=lastWeek.days[lastWeek.days.length-1].date;
+  const daysLeft=Math.max(0,Math.ceil((new Date(raceDate+'T00:00:00')-new Date())/86400000));
 
-  const discTotals={Swim:{done:0,total:0},Bike:{done:0,total:0},Run:{done:0,total:0},Brick:{done:0,total:0}};
+  const discTotals={Swim:{done:0,total:0},Bike:{done:0,total:0},Run:{done:0,total:0},Brick:{done:0,total:0},Strength:{done:0,total:0},Mobility:{done:0,total:0},Stretch:{done:0,total:0}};
   PLAN.forEach((w,wi)=>w.days.forEach((d,di)=>{
-    const disc=d.disc||d.discipline;
-    if(discTotals[disc]){
-      discTotals[disc].total+=d.steps.length;
-      discTotals[disc].done+=dayDone(wi,di);
-    }
+    d.steps.forEach((step,si)=>{
+      const disc=step.disc||d.disc||d.discipline;
+      if(discTotals[disc]){
+        discTotals[disc].total+=1;
+        if(state.completed[sKey(wi,di,si)])discTotals[disc].done+=1;
+      }
+    });
   }));
 
   const allRatings=Object.values(state.ratings);
@@ -685,9 +691,49 @@ function renderStats(){
   const avgF=rCount?Math.round(allRatings.reduce((a,r)=>a+r.fatigue,0)/rCount*10)/10:null;
   const avgX=rCount?Math.round(allRatings.reduce((a,r)=>a+r.excite,0)/rCount*10)/10:null;
 
-  const bikeEntries=Object.values(state.bikeLogs).filter(b=>b.dist>0||b.time>0);
-  const totalDist=bikeEntries.reduce((a,b)=>a+(b.dist||0),0);
-  const totalTime=bikeEntries.reduce((a,b)=>a+(b.time||0),0);
+  const DAY_ORDER={Mon:0,Tue:1,Wed:2,Thu:3,Fri:4,Sat:5,Sun:6};
+  const logTotals={Swim:{dist:0,time:0,entries:[]},Bike:{dist:0,time:0,entries:[]},Run:{dist:0,time:0,entries:[]}};
+  Object.values(state.logs).forEach(byDisc=>{
+    Object.entries(byDisc).forEach(([disc,entry])=>{
+      if(!logTotals[disc])return;
+      if((entry.dist>0)||(entry.time>0)){
+        logTotals[disc].dist+=entry.dist||0;
+        logTotals[disc].time+=entry.time||0;
+        logTotals[disc].entries.push(entry);
+      }
+    });
+  });
+
+  function fmtMinSec(decMin){
+    if(!isFinite(decMin)||decMin<=0)return '—';
+    const m=Math.floor(decMin),s=Math.round((decMin-m)*60);
+    return `${m}:${String(s).padStart(2,'0')}`;
+  }
+  const paceLabel={
+    Swim: t=>t.dist>0&&t.time>0?`${fmtMinSec(t.time*100/t.dist)} /100yd`:'—',
+    Bike: t=>t.dist>0&&t.time>0?`${(t.dist/(t.time/60)).toFixed(1)} mph avg`:'—',
+    Run:  t=>t.dist>0&&t.time>0?`${fmtMinSec(t.time/t.dist)} /mi`:'—'
+  };
+  const logUnit={Swim:'yd',Bike:'mi',Run:'mi'};
+
+  const logCards=['Swim','Bike','Run'].map(disc=>{
+    const t=logTotals[disc];
+    return `<div class="log-card">
+      <div class="section-title" style="color:${DISC_BAR_COLOR[disc]}">${LOG_UNITS[disc].icon} ${disc} Totals</div>
+      <div class="stat-grid" style="margin-bottom:0">
+        <div class="stat-card"><div class="stat-val">${t.dist.toFixed(1)}</div><div class="stat-lbl">Total ${logUnit[disc]}</div></div>
+        <div class="stat-card"><div class="stat-val">${t.time}</div><div class="stat-lbl">Total min</div></div>
+        <div class="stat-card"><div class="stat-val" style="font-size:16px">${paceLabel[disc](t)}</div><div class="stat-lbl">Avg pace</div></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const allLogEntries=[];
+  ['Swim','Bike','Run'].forEach(disc=>logTotals[disc].entries.forEach(e=>allLogEntries.push({disc,...e})));
+  allLogEntries.sort((a,b)=>(a.week-b.week)||(DAY_ORDER[a.day]-DAY_ORDER[b.day]));
+  const logRows=allLogEntries.length
+    ?allLogEntries.map(e=>`<div class="bike-stat-row"><span style="color:var(--mu)">${LOG_UNITS[e.disc].icon} ${e.label}</span><span style="color:var(--acc)">${e.dist>0?e.dist.toFixed(1)+' '+logUnit[e.disc]:''}${e.dist>0&&e.time>0?' · ':''}${e.time>0?e.time+' min':''}</span></div>`).join('')
+    :`<div style="font-size:12px;color:var(--mu);padding:8px 0">No workouts logged yet.</div>`;
 
   const discBars=Object.entries(discTotals).map(([disc,s])=>{
     const dpct=s.total?Math.round(s.done/s.total*100):0;
@@ -707,10 +753,6 @@ function renderStats(){
     </div>`;
   }).join('');
 
-  const bikeRows=bikeEntries.length
-    ?bikeEntries.map(b=>`<div class="bike-stat-row"><span style="color:var(--mu)">${b.label}</span><span style="color:var(--acc)">${b.dist>0?b.dist.toFixed(1)+' km':''}${b.dist>0&&b.time>0?' · ':''}${b.time>0?b.time+' min':''}</span></div>`).join('')
-    :`<div style="font-size:12px;color:var(--mu);padding:8px 0">No bike sessions logged yet.</div>`;
-
   document.getElementById('view-stats').innerHTML=`
     <div class="stat-grid">
       <div class="stat-card"><div class="stat-val">${pct}%</div><div class="stat-lbl">Overall Complete</div></div>
@@ -724,49 +766,13 @@ function renderStats(){
       <div class="rs-card"><div class="rs-val" style="color:#f59e0b">${avgF??'—'}</div><div class="rs-lbl">😴 Fatigue</div></div>
       <div class="rs-card"><div class="rs-val" style="color:#e8ff00">${avgX??'—'}</div><div class="rs-lbl">🔥 Excite</div></div>
     </div>
-    <div class="sec-title-stats">Bike Log</div>
-    <div class="stat-grid" style="margin-bottom:9px">
-      <div class="stat-card"><div class="stat-val">${totalDist.toFixed(1)}</div><div class="stat-lbl">Total km ridden</div></div>
-      <div class="stat-card"><div class="stat-val">${totalTime}</div><div class="stat-lbl">Total min on bike</div></div>
-    </div>
-    <div style="background:var(--n2);border-radius:11px;padding:10px 13px;border:1px solid var(--sl);margin-bottom:14px">${bikeRows}</div>
-    <div class="sec-title-stats">By Discipline</div>${discBars}
+    <div class="sec-title-stats">Training Log — Cumulative Totals</div>
+    ${logCards}
+    <div class="sec-title-stats">Logged Workouts</div>
+    <div style="background:var(--n2);border-radius:11px;padding:10px 13px;border:1px solid var(--sl);margin-bottom:14px">${logRows}</div>
+    <div class="sec-title-stats">By Discipline (steps checked)</div>${discBars}
     <div class="sec-title-stats" style="margin-top:14px">Weekly Progress</div>${weekBars}`;
 }
-
-// ── Notifications ─────────────────────────────────────────────────────────
-function checkNotifPrompt(){
-  if(!('Notification' in window))return;
-  if(Notification.permission==='default')document.getElementById('notif-banner').classList.add('show');
-}
-async function requestNotifications(){
-  const perm=await Notification.requestPermission();
-  document.getElementById('notif-banner').classList.remove('show');
-  if(perm==='granted'){
-    scheduleNotifications();
-    showToast('🔔 Notifications enabled!');
-  }
-}
-function scheduleNotifications(){
-  if('serviceWorker' in navigator&&navigator.serviceWorker.controller){
-    navigator.serviceWorker.controller.postMessage({
-      type:'SCHEDULE_NOTIFICATIONS',
-      plan:PLAN,
-      times:state.notifTimes
-    });
-  }
-}
-function saveNotifTimes(){
-  state.notifTimes={
-    eve:document.getElementById('eve-time').value,
-    morn:document.getElementById('morn-time').value
-  };
-  save();
-  scheduleNotifications();
-  const e=state.notifTimes.eve,m=state.notifTimes.morn;
-  showToast(`Alerts set: ${fmt(m)} & ${fmt(e)}`);
-}
-function fmt(t){const[h,m]=t.split(':').map(Number);return`${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`}
 
 // ── Navigation ────────────────────────────────────────────────────────────
 function switchView(viewId,btn){
@@ -778,10 +784,6 @@ function switchView(viewId,btn){
   if(viewId==='today')renderToday();
   if(viewId==='plan')renderPlan();
   if(viewId==='stats')renderStats();
-  if(viewId==='alerts'){
-    document.getElementById('eve-time').value=state.notifTimes.eve||'20:00';
-    document.getElementById('morn-time').value=state.notifTimes.morn||'07:00';
-  }
 }
 
 // ── Toast ─────────────────────────────────────────────────────────────────
@@ -809,7 +811,13 @@ if('serviceWorker' in navigator){
 pendingRating={...( state.ratings[dKey(...(findToday()?[findToday().wi,findToday().di]:[0,0]))]||{effort:5,fatigue:5,excite:5})};
 updateGlobal();
 renderToday();
-checkNotifPrompt();
+(function(){
+  const lastWeek=PLAN[PLAN.length-1];
+  const raceDate=new Date(lastWeek.days[lastWeek.days.length-1].date+'T00:00:00');
+  const raceLabel=raceDate.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  const sub=document.getElementById('app-subtitle');
+  if(sub)sub.textContent=`🏊 1.2mi · 🚴 56mi · 🏃 13.1mi · ${raceLabel}`;
+})();
 
 // ── Google Sheets Sync ────────────────────────────────────────────────────
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxHr1GIJNfraZEChudbG7xiuVc9Ni5w8CeGGCzlRO0-wjlmu1eXCwkoPcEfaeIstlCxdQ/exec';
@@ -864,12 +872,16 @@ async function loadFromSheets() {
       });
     }
 
-    // Restore bike logs
-    if (data.bikeLogs) {
-      Object.entries(data.bikeLogs).forEach(([key, row]) => {
-        state.bikeLogs[key] = {
-          dist:  parseFloat(row['Distance (km)']) || 0,
-          time:  parseInt(row['Time (min)'])      || 0,
+    // Restore swim/bike/run logs
+    if (data.logs) {
+      Object.values(data.logs).forEach(row => {
+        const dk = row['Day Key'];
+        const disc = row['Discipline'];
+        if (!dk || !disc) return;
+        if (!state.logs[dk]) state.logs[dk] = {};
+        state.logs[dk][disc] = {
+          dist:  parseFloat(row['Distance'])  || 0,
+          time:  parseInt(row['Time (min)'])  || 0,
           label: row['Session'] || '',
           week:  row['Week']    || '',
           day:   row['Day']     || '',
