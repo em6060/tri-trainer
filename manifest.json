@@ -1,7 +1,7 @@
 {
   "name": "70.3 Trainer — Half Ironman Plan",
   "short_name": "70.3 Trainer",
-  "description": "Your 22-week 70.3 Half Ironman training plan with notifications and progress tracking",
+  "description": "Your 21-week 70.3 Half Ironman training plan with progress tracking",
   "start_url": "/tri-trainer/",
   "scope": "/tri-trainer/",
   "display": "standalone",
