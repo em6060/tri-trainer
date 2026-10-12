@@ -1,10 +1,16 @@
 // ─── TRAINING PLAN DATA ───────────────────────────────────────────────────────
-// 70.3 Half Ironman — 22-week plan (base 20-week Triathlete.com plan + IT-band-safe
-// Build-phase ramp + daily mobility/strength/stretch additions).
-// Start date: 2026-10-12 (Monday). Race day: 2027-03-14 (Sunday).
-// Each week runs Mon–Sun. Monday = light mobility/activation, not a full rest day.
-// Tue & Thu = Bike + whole-body strength (gym). Wed & Fri = Swim + Run.
-// Every day ends with a 10-min stretch. Sat/Sun match the original 70.3 plan's load.
+// 70.3 Half Ironman — 21-week plan, rebuilt from the user's own "Matt's Training"
+// spreadsheet (16-week base), re-paced for an IT-band-safe run progression:
+//  - Long run and the Wed track-style session now climb in small, steady steps
+//    (never more than ~1 mile/week), with a real recovery week every 4th week
+//    and extra transition weeks inserted right where the original plan's biggest
+//    jumps were (exactly where the real-world IT-band flare-up started last time).
+//  - Every day: Mon = 15-20 min light mobility/activation (not a full rest day).
+//  - Tue & Thu = Bike + a whole-body strength session (hip/glute focus Tue,
+//    upper/core focus Thu) — every session includes progressive push-ups + plank.
+//  - Every single day ends with a spelled-out 10-min stretch list (individually
+//    checkable), not one generic checkbox.
+// Start date: 2026-10-12 (Monday). Race day: 2027-03-07 (Sunday).
 const PLAN = [
   {
     "week": 1,
@@ -17,33 +23,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -52,51 +78,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Power Intervals: 45 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate, 4x30s sprints scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 4 × 20-sec sprints in high gear (enough recovery to reach 45 min total)",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 10",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 20 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -105,51 +146,46 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: 1,200 Yards + Run: Fartlek: 30 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 800 m (8x25 m RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 5 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 6 × 30 sec @ VO2max with active recovery to fill 30 min",
+            "label": "2x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 5 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -158,51 +194,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Push-ups \u2014 3 \u00d7 10",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 20 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -211,46 +262,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: 1,200 Yards + Run: Foundation: 35 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 800 m (3x100 m race pace RI 15s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 (25 easy/25 hard), RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -259,26 +305,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 20 miles (~32.19 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -287,26 +343,41 @@ const PLAN = [
       {
         "day": "Sun",
         "discipline": "Run",
-        "type": "Run: Foundation: 40 min",
+        "type": "Long Run (6 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 6 miles (~9.7 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "Swim 800 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -325,33 +396,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -360,51 +451,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Power Intervals: 50 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate, 6x30s sprints scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 5 × 20-sec sprints in high gear (enough recovery to reach 50 min total)",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 10",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 20 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -413,51 +519,46 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,300 Yards + Run: Fartlek: 30 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 850 m (10x25 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 5 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 8 × 30 sec @ VO2max with active recovery to fill 30 min",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 5 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -466,51 +567,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "5 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 10",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 20 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -519,51 +640,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,300 Yards + Run: Foundation: 35 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 850 m (4x100 m race pace RI 15s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 (25 build/25 descend), RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -571,22 +682,37 @@ const PLAN = [
       },
       {
         "day": "Sat",
-        "discipline": "Brick",
-        "type": "Brick: 55 min",
+        "discipline": "Bike",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "MS: Bike 45 min @ moderate aerobic",
+            "label": "Bike 25 miles (~40.23 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: Run 10 min @ moderate aerobic (no break)",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -594,42 +720,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,600 Yards + Run: Foundation: 40 min",
+        "discipline": "Run",
+        "type": "Long Run (7 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,000 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 7 miles (~11.3 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "Swim 1,000 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -648,33 +774,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -683,51 +829,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Power Intervals: 50 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min, 8x30s sprints scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 5 × 20-sec sprints in high gear",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 11",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 25 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -736,51 +897,46 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,400 Yards + Run: Fartlek: 35 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 900 m (12x25 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 5 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 8 × 30 sec @ VO2max with active recovery to fill 35 min",
+            "label": "6x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 5 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -789,51 +945,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "8 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 11",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 25 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -842,51 +1018,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,400 Yards + Run: Foundation: 40 min",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 900 m (3x200 m race pace RI 15s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 (25 easy/25 hard), RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -895,26 +1061,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 30 miles (~48.28 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -922,42 +1098,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,700 Yards + Run: Foundation: 45 min",
+        "discipline": "Run",
+        "type": "Long Run (8 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,200 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 8 miles (~12.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "Swim 1,200 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -968,7 +1144,7 @@ const PLAN = [
   {
     "week": 4,
     "phase": "Base",
-    "note": "⚡ Recovery Week — training reduced to let your body absorb recent gains",
+    "note": "Recovery week \u2014 reduced volume.",
     "days": [
       {
         "day": "Mon",
@@ -976,33 +1152,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -1011,51 +1207,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Power Intervals: 45 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min, 6x30s sprints scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 4 × 20-sec sprints in high gear",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 11",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 25 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1064,46 +1275,46 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,000 Yards + Run: Fartlek: 30 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 800 m (8x25 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 5 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 6 × 30 sec @ VO2max",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 5 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1112,51 +1323,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 30 min + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 10 min @ moderate aerobic",
+            "label": "5 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 11",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 25 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1165,46 +1396,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,200 Yards + Run: Foundation: 35 min",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 800 m (3x100 m race pace RI 15s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 (25 build/25 descend), RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1213,26 +1439,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 45 min",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 25 miles (~40.23 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1240,37 +1476,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,400 Yards + Brick: 55 min",
+        "discipline": "Run",
+        "type": "Long Run (6 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,000 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: Bike 45 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "MS: Run 10 min @ moderate aerobic (no break)",
+            "label": "Run 6 miles (~9.7 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Swim 1,000 m moderate",
+            "note": "",
+            "disc": "Swim"
+          },
+          {
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -1289,33 +1530,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -1324,51 +1585,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Short Hill Climbs: 55 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 8x1 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 6 × 1-min hill climbs @ speed intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 12",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 30 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1377,56 +1653,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,450 Yards + Run: Speed Intervals: 39 min",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (6x50 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 4.5 miles (~7.2 km) with 6x30s hard efforts scattered",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 8 × 30 sec with 2-min active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 9 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1435,51 +1696,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "8 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 12",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 30 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1488,56 +1769,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,600 Yards + Run: Foundation: 40 min + Strides",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (2x200 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 150 (50 easy/25 hard), RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 2 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1546,26 +1817,41 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 90 min",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 35 miles (~56.33 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
+            "label": "10 min transition run moderate",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1573,42 +1859,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,800 Yards + Run: Foundation: 50 min",
+        "discipline": "Run",
+        "type": "Long Run (7 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,200 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 7 miles (~11.3 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 30 min @ moderate aerobic",
+            "label": "Swim 1,400 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -1627,33 +1913,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -1662,51 +1968,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Short Hill Climbs: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 6x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 7 × 1-min hill climbs @ speed intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 13",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 32 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1715,56 +2036,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,575 Yards + Run: Speed Intervals: 42 min",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,100 m (8x50 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 7 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 4.5 miles (~7.2 km) with 6x45s hard efforts scattered",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 9 × 30 sec with 2-min active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1773,51 +2079,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
+            "label": "10 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 13",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 32 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1826,56 +2152,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,700 Yards + Run: Foundation: 40 min + Strides",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,100 m (3x200 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 6 × 50 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 150 (50 build/25 descend), RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -1883,22 +2199,37 @@ const PLAN = [
       },
       {
         "day": "Sat",
-        "discipline": "Brick",
-        "type": "Brick: 1 hr",
+        "discipline": "Bike",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "MS: Bike 45 min @ moderate aerobic",
+            "label": "Bike 40 miles (~64.37 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: Run 15 min @ moderate aerobic (no break)",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -1906,42 +2237,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Time Trial: 1,400 Yards + Run: Foundation: 25 min",
+        "discipline": "Run",
+        "type": "Long Run (8 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,000 @ MAXIMUM intensity — race effort!",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 8 miles (~12.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 5 min @ moderate aerobic",
+            "label": "Swim 1,600 m (1,000 m time trial)",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -1960,33 +2291,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -1995,51 +2346,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Short Climbs: 1:05 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 4x3 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 8 × 1-min hill climbs @ speed intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 14",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 35 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2048,56 +2414,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,700 Yards + Run: Speed Intervals: 45 min",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,200 m (10x50 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 4.5 miles (~7.2 km) with 6x1 min hard efforts scattered",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 10 × 30 sec with 2-min active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2106,51 +2457,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
+            "label": "12 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 14",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 35 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2159,56 +2530,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,750 Yards + Run: Foundation: 40 min + Strides",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,200 m (3x200 m race pace RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 150 (50 easy/25 hard), RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5 miles (~8.0 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2217,26 +2578,41 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:45",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 miles (~72.42 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 85 min @ moderate aerobic",
+            "label": "15 min transition run moderate",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2244,27 +2620,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,000 Yards",
+        "discipline": "Run",
+        "type": "Long Run (9 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
+            "label": "Run 9 miles (~14.5 km) moderate",
+            "note": "",
+            "disc": "Run"
+          },
+          {
+            "label": "Swim 1,800 m moderate",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 1,500 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -2275,7 +2666,7 @@ const PLAN = [
   {
     "week": 8,
     "phase": "Base",
-    "note": "⚡ Recovery Week — reduced volume to absorb training",
+    "note": "Recovery week \u2014 reduced volume.",
     "days": [
       {
         "day": "Mon",
@@ -2283,33 +2674,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -2318,51 +2729,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Short Hill Climbs: 55 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min, 6x1 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 6 × 1-min hill climbs @ speed intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 3 × 10",
-            "note": "Moderate dumbbell/kettlebell, full depth, knees tracking over toes.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 8 each leg",
-            "note": "Light-moderate weight. This is the #1 ITB-prevention exercise — control the wobble.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Cable/band hip abduction — 3 × 12 each side",
-            "note": "Standing, slow, resist the urge to swing the leg.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bench press or push-ups — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Plank — 3 × 30 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 14",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 35 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2371,51 +2797,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,250 Yards + Run: Speed Intervals: 39 min",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (8x50 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 4.5 miles (~7.2 km) with 6x30s hard efforts scattered",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 8 × 30 sec with 2-min active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 9 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2424,51 +2840,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 45 min + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "8 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Lat pulldown or pull-ups — 3 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 2 × 10 each leg (light)",
-            "note": "Low box, bodyweight or light dumbbells — keep legs fresh for tomorrow.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Side plank — 2 × 25 sec each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 2 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 14",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 35 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2477,56 +2913,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Fartlek + Sprint: 1,600 Yards + Run: Foundation: 35 min + Strides",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (2x200 m race pace RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 150 (50 build/25 descend), RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2535,26 +2956,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 35 miles (~56.33 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2562,37 +2993,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,600 Yards + Brick: 1 hr",
+        "discipline": "Run",
+        "type": "Long Run (7 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,000 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: Bike 45 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "MS: Run 15 min @ moderate aerobic (no break)",
+            "label": "Run 7 miles (~11.3 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Swim 1,400 m moderate",
+            "note": "",
+            "disc": "Swim"
+          },
+          {
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -2603,7 +3039,7 @@ const PLAN = [
   {
     "week": 9,
     "phase": "Build",
-    "note": "🟡 Build Primer — a gentler bridge week before real lactate-interval work begins. This is new, added specifically because this is where things broke down last time. Light surges only, strides instead of hard intervals. If anything in the outside knee/hip feels off, stop and walk — don't push through it.",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -2611,33 +3047,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -2646,51 +3102,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Lactate Primer: 50 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min, 6x1 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 20-sec moderate-hard surges (not max effort) with 3 min easy spin between",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 15",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 38 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2699,56 +3170,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,700 Yards + Run: Strides Primer: 30 min",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (8x50 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 5 miles (~8.0 km) with 6x1 min hard efforts scattered",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 6 × 20-sec relaxed strides (quick but controlled — not a sprint) with 90-sec easy jog between",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Stop immediately if you feel any outside-of-knee or hip tightness — walk it out, don't push through.",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2757,51 +3213,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "8 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 15",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 38 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2810,56 +3286,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,600 Yards + Run: Foundation: 35 min + light strides",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,000 m (2x200 m race pace RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec relaxed, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -2868,26 +3334,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:10",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 42 miles (~67.59 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 50 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -2895,42 +3371,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,700 Yards + Run: Foundation: 30 min",
+        "discipline": "Run",
+        "type": "Long Run (8 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,200 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 8 miles (~12.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 10 min @ moderate aerobic",
+            "label": "Swim 1,400 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -2941,7 +3417,7 @@ const PLAN = [
   {
     "week": 10,
     "phase": "Build",
-    "note": "First lactate-interval work of the plan. Go by feel — if the outside of your knee or hip tightens up, back off the pace, not the plan.",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -2949,33 +3425,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -2984,51 +3480,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Long Hill Climbs: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 min, 6x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 5-min hill climbs @ VO2max intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 16",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 40 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3037,61 +3548,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,750 Yards + Run: Lactate Intervals: 32 min",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (6x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 75 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 1 mile easy, 4x400m @5K pace w/ 2 min jog recovery, 1 mile easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 12 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3100,51 +3591,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
+            "label": "15 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 16",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 40 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3153,61 +3664,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,800 Yards + Run: Foundation: 45 min + Strides",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (2x300 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5 miles (~8.0 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3216,26 +3712,41 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 2 hrs",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 miles (~80.47 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 100 min @ moderate aerobic",
+            "label": "20 min transition run moderate",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3243,42 +3754,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Foundation: 1 hr",
+        "discipline": "Run",
+        "type": "Long Run (9 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,500 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 9 miles (~14.5 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "Swim 2,000 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -3289,7 +3800,7 @@ const PLAN = [
   {
     "week": 11,
     "phase": "Build",
-    "note": "🔁 Consolidation week — repeating this week's intensity rather than stepping up again yet. This extra week at the same load is what last time's plan skipped.",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -3297,33 +3808,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -3332,51 +3863,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Long Hill Climbs: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 min, 6x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 5-min hill climbs @ VO2max intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 17",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 42 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3385,61 +3931,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,750 Yards + Run: Lactate Intervals: 32 min",
+        "type": "Swim + Run (5.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (6x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 75 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 1 mile easy, 5x500m @5K pace w/ 90s jog recovery, 1 mile easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 12 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3448,51 +3974,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
+            "label": "15 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 17",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 42 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3501,61 +4047,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,800 Yards + Run: Foundation: 45 min + Strides",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (2x300 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5 miles (~8.0 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3564,26 +4095,41 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 2 hrs",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 miles (~80.47 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 100 min @ moderate aerobic",
+            "label": "20 min transition run moderate",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3591,42 +4137,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Foundation: 1 hr",
+        "discipline": "Run",
+        "type": "Long Run (10 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,500 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 10 miles (~16.1 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
+            "label": "Swim 2,000 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -3637,7 +4183,7 @@ const PLAN = [
   {
     "week": 12,
     "phase": "Build",
-    "note": "",
+    "note": "Recovery week \u2014 reduced volume.",
     "days": [
       {
         "day": "Mon",
@@ -3645,33 +4191,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -3680,51 +4246,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Lactate Intervals: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 min, 5x3 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 3-min intervals @ VO2max on flat/rolling terrain",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 17",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 42 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3733,61 +4314,46 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,825 Yards + Run: Lactate Intervals: 34 min",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,400 m (8x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 75 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 14 × 30 sec @ VO2max with 30-sec active recoveries",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3796,51 +4362,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
+            "label": "18 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 17",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 42 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3849,61 +4435,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,900 Yards + Run: Foundation: 45 min + Strides",
+        "type": "Swim + Run (4.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,400 m (2x300 m race pace RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4.5 miles (~7.2 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -3911,22 +4477,37 @@ const PLAN = [
       },
       {
         "day": "Sat",
-        "discipline": "Brick",
-        "type": "Brick: 1:20",
+        "discipline": "Bike",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: Bike 1 hr @ moderate aerobic",
+            "label": "Bike 55 miles (~88.51 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: Run 20 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -3934,42 +4515,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,300 Yards + Run: Foundation: 30 min",
+        "discipline": "Run",
+        "type": "Long Run (8 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,800 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 8 miles (~12.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 10 min @ moderate aerobic",
+            "label": "Swim 2,000 m (1,500 m time trial)",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -3988,33 +4569,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -4023,51 +4624,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Long Hill Climbs: 1:05 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 55 min, 4x4 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 3 × 5-min hill climbs @ VO2max intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 18",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 45 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4076,61 +4692,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,900 Yards + Run: Lactate Intervals: 36 min",
+        "type": "Swim + Run (5.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,500 m (10x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 75 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 1 mile easy, 6x600m @5K pace w/ 400m jog recovery, 1 mile easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 16 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4139,51 +4735,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
+            "label": "20 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 18",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 45 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4192,61 +4808,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,000 Yards + Run: Foundation: 45 min + Strides",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,500 m (3x300 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5 miles (~8.0 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4255,26 +4856,41 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 2:15",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 60 miles (~96.56 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 115 min @ moderate aerobic",
+            "label": "10 min transition run race pace",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4282,42 +4898,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Time Trial: 2,150 Yards + Run: Long Run: 1:05",
+        "discipline": "Run",
+        "type": "Long Run (9 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,650 @ MAXIMUM intensity — race effort!",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 9 miles (~14.5 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 45 min @ moderate aerobic",
+            "label": "Swim 2,200 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -4328,7 +4944,7 @@ const PLAN = [
   {
     "week": 14,
     "phase": "Build",
-    "note": "⚡ Recovery Week + Optional Sprint Triathlon on Sunday",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -4336,33 +4952,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -4371,51 +5007,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Lactate Intervals: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 5x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 3-min intervals @ VO2max on flat/rolling terrain",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat or goblet squat — 4 × 8",
-            "note": "Add weight from Base phase if it felt manageable.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "Progress the weight slowly. Keep hips square.",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 15 steps each direction",
-            "note": "Band above knees, stay low, this is direct ITB armor.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Incline dumbbell press — 3 × 10",
-            "note": "",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 35 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 19",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 48 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4424,51 +5075,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,400 Yards + Run: Lactate Intervals: 32 min",
+        "type": "Swim + Run (6 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (6x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 75 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 1 mile easy, 8x600m @5K pace w/ 400m jog recovery, 1 mile easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 12 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4477,51 +5118,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:15 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 55 min @ moderate aerobic",
+            "label": "10 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 4 × 10",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Overhead press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Step-ups — 3 × 10 each leg",
-            "note": "Still light-moderate — legs need to be fresh for Friday's run.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "Anti-rotation core — good for run stability.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank with reach — 2 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Push-ups \u2014 3 \u00d7 19",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Plank \u2014 3 \u00d7 48 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4530,56 +5191,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,600 Yards + Run: Foundation: 35 min + Strides",
+        "type": "Swim + Run (5.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (2x300 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5.5 miles (~8.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 15 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4588,21 +5239,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Recovery: 20 min",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ recovery intensity",
+            "label": "Bike 45 miles (~72.42 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ recovery intensity",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4610,32 +5276,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "RACE",
-        "type": "RACE: 🏁 Optional Sprint Triathlon",
+        "discipline": "Run",
+        "type": "Long Run (10 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: Swim 800 yards",
+            "label": "Run 10 miles (~16.1 km) moderate",
             "note": "",
-            "disc": "RACE"
+            "disc": "Run"
           },
           {
-            "label": "MS: Bike 12 miles",
+            "label": "Swim 2,000 m moderate",
             "note": "",
-            "disc": "RACE"
+            "disc": "Swim"
           },
           {
-            "label": "CD: Run 3 miles",
-            "note": "",
-            "disc": "RACE"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "(Or do this as a solo time trial if no race is available)",
-            "note": "",
-            "disc": "RACE"
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -4645,8 +5321,8 @@ const PLAN = [
   },
   {
     "week": 15,
-    "phase": "Peak",
-    "note": "Peak phase — long weekend workouts get very long to build race endurance",
+    "phase": "Build",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -4654,33 +5330,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -4689,51 +5385,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Long Hill Climbs: 1:10 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 5x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 4 × 5-min hill climbs @ VO2max intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 20",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 50 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4742,56 +5453,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,900 Yards + Run: Lactate Intervals",
+        "type": "Swim + Run (6 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (6x75 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 1 mile easy, 6x800m @5K pace w/ 400m jog recovery, 1 mile easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 18 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4800,51 +5496,71 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 min moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
+            "label": "10 min comfortably hard",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
-            "note": "",
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 20",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 50 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4853,61 +5569,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 45 min + Strides",
+        "type": "Swim + Run (5.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (2x300 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 300 @ threshold intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5.5 miles (~8.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 25 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -4916,26 +5617,36 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 2:30",
+        "type": "Long Bike",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 miles (~72.42 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 130 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -4943,42 +5654,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,300 Yards + Run: Long Run: 1:10",
+        "discipline": "Run",
+        "type": "Long Run (11 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,800 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 11 miles (~17.7 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 50 min @ moderate aerobic",
+            "label": "Swim 2,000 m moderate",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -4989,7 +5700,7 @@ const PLAN = [
   {
     "week": 16,
     "phase": "Peak",
-    "note": "",
+    "note": "Recovery week \u2014 reduced volume.",
     "days": [
       {
         "day": "Mon",
@@ -4997,33 +5708,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -5032,51 +5763,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Lactate Intervals: 1:15 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 20 min easy, 20 min comfortably hard, 20 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 4 × 3-min intervals @ VO2max on flat/rolling terrain",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 20",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 50 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5085,56 +5831,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 2,000 Yards + Run: Lactate Intervals: 40 min",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (6x100 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy, 1 mile @10K pace, 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 × 30 sec @ VO2max with 30-sec active recoveries",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5143,51 +5874,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 5x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Push-ups \u2014 3 \u00d7 20",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 50 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5196,61 +5942,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 50 min + Strides",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (2x400 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 300 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5 miles (~8.0 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 30 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5259,26 +5985,46 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:45",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 miles (~80.47 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 85 min @ moderate aerobic",
+            "label": "10 miles (~16.09 km) race pace",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
+            "label": "15 min transition run race pace",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5286,37 +6032,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,400 Yards + Brick: 1:45",
+        "discipline": "Run",
+        "type": "Long Run (9 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,800 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: Bike 75 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "MS: Run 30 min @ moderate aerobic",
+            "label": "Run 9 miles (~14.5 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Swim 2,200 m (500 m race pace)",
+            "note": "",
+            "disc": "Swim"
+          },
+          {
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -5327,7 +6078,7 @@ const PLAN = [
   {
     "week": 17,
     "phase": "Peak",
-    "note": "Threshold-intensity training becomes the second priority alongside long endurance",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -5335,33 +6086,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -5370,51 +6141,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Tempo: 1 hr + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 13 min @ moderate aerobic",
+            "label": "Bike 20 min easy, 20 min comfortably hard, 20 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 12 min @ threshold intensity with 10 min active recovery",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 13 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 21",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 52 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5423,56 +6209,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Tempo: 36 min",
+        "type": "Swim + Run (6 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (6x100 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy, 2 miles @10K pace, 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 16 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5481,51 +6252,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 5x2 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Push-ups \u2014 3 \u00d7 21",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 52 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5534,61 +6320,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 50 min + Strides",
+        "type": "Swim + Run (5.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (2x400 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 300 @ threshold intensity, RI=0:30",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 5.5 miles (~8.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 30 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 6 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5597,26 +6368,46 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 2:45",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 50 miles (~80.47 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 145 min @ moderate aerobic",
+            "label": "10 miles (~16.09 km) race pace",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
+            "label": "15 min transition run race pace",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5624,42 +6415,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,500 Yards + Run: Long Run: 1:20",
+        "discipline": "Run",
+        "type": "Long Run (10 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2,000 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 10 miles (~16.1 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 60 min @ moderate aerobic",
+            "label": "Swim 2,200 m (500 m race pace)",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -5670,7 +6461,7 @@ const PLAN = [
   {
     "week": 18,
     "phase": "Peak",
-    "note": "⚡ Recovery Week + Optional Olympic Distance Triathlon Sunday",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -5678,33 +6469,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -5713,51 +6524,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Tempo: 55 min + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 17 min @ moderate aerobic",
+            "label": "Bike 20 min easy, 25 min comfortably hard, 15 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 22 min @ threshold intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 16 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 22",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 55 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5766,51 +6592,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 1,600 Yards + Run: Tempo: 34 min",
+        "type": "Swim + Run (6.5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,800 m (8x100 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy, 2.5 miles @10K pace, 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 14 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5819,51 +6635,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1 hr + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 4x3 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Push-ups \u2014 3 \u00d7 22",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 55 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5872,51 +6703,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,400 Yards + Run: Foundation: 40 min + Strides",
+        "type": "Swim + Run (6 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (2x400 m race pace RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 6 miles (~9.7 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -5925,21 +6751,46 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Recovery: 20 min",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ recovery intensity",
+            "label": "Bike 45 miles (~72.42 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ recovery intensity",
+            "label": "15 miles (~24.14 km) race pace",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "20 min transition run race pace",
+            "note": "",
+            "disc": "Run"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -5947,32 +6798,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "RACE",
-        "type": "RACE: 🏁 Optional Olympic Triathlon",
+        "discipline": "Run",
+        "type": "Long Run (11 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: Swim 1.5 km",
+            "label": "Run 11 miles (~17.7 km) moderate",
             "note": "",
-            "disc": "RACE"
+            "disc": "Run"
           },
           {
-            "label": "MS: Bike 40 km",
+            "label": "Swim 2,400 m (600 m race pace)",
             "note": "",
-            "disc": "RACE"
+            "disc": "Swim"
           },
           {
-            "label": "CD: Run 10 km",
-            "note": "",
-            "disc": "RACE"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "(Or do as a solo time trial if no race available)",
-            "note": "",
-            "disc": "RACE"
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -5983,7 +6844,7 @@ const PLAN = [
   {
     "week": 19,
     "phase": "Peak",
-    "note": "Peak training week — highest volume of the entire plan",
+    "note": "",
     "days": [
       {
         "day": "Mon",
@@ -5991,33 +6852,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -6026,51 +6907,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Tempo: 1:05 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 21 min @ moderate aerobic",
+            "label": "Bike 15 min easy, 30 min comfortably hard, 15 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 24 min @ threshold intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 20 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 23",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 58 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6079,56 +6975,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Tempo: 36 min",
+        "type": "Swim + Run (7 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 2,000 m (10x100 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy, 3 miles @10K pace, 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 16 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6137,51 +7018,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 8x1 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Push-ups \u2014 3 \u00d7 23",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 58 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6190,61 +7086,46 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 55 min + Strides",
+        "type": "Swim + Run (6 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (2x400 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 400 @ threshold intensity, RI=1:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 6 miles (~9.7 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 35 min @ moderate aerobic",
+            "label": "4x10s hill sprints",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6253,26 +7134,46 @@ const PLAN = [
       {
         "day": "Sat",
         "discipline": "Bike",
-        "type": "Bike: Long Bike: 3 hrs",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 40 miles (~64.37 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 160 min @ moderate aerobic",
+            "label": "10 miles (~16.09 km) race pace",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
+            "label": "10 min transition run race pace",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6280,42 +7181,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,500 Yards + Run: Long Run: 1:30",
+        "discipline": "Run",
+        "type": "Long Run (12 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2,000 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 12 miles (~19.3 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
+            "label": "Swim 2,400 m (600 m race pace)",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -6325,8 +7226,8 @@ const PLAN = [
   },
   {
     "week": 20,
-    "phase": "Peak",
-    "note": "",
+    "phase": "Taper",
+    "note": "Taper week.",
     "days": [
       {
         "day": "Mon",
@@ -6334,33 +7235,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -6369,51 +7290,66 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Tempo: 1:10 + Strength (hip/glute focus)",
+        "type": "Bike + Strength (hip/glute focus)",
         "steps": [
           {
-            "label": "WU: 22 min @ moderate aerobic",
+            "label": "Bike 15 min easy, 30 min comfortably hard, 15 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 26 min @ threshold intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 22 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Back squat — 4 × 6",
-            "note": "Heaviest lifting block of the plan — good form over ego.",
+            "label": "Goblet squat \u2014 3 \u00d7 10",
+            "note": "Full depth, knees tracking over toes.",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg RDL — 3 × 10 each leg",
-            "note": "",
+            "label": "Single-leg RDL \u2014 3 \u00d7 8 each leg",
+            "note": "The #1 ITB-prevention exercise \u2014 control the wobble, light-moderate weight.",
             "disc": "Strength"
           },
           {
-            "label": "Lateral band walks — 3 × 20 steps each direction",
-            "note": "",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Slow and controlled \u2014 resist the urge to swing the leg.",
             "disc": "Strength"
           },
           {
-            "label": "Bulgarian split squat — 2 × 8 each leg",
-            "note": "Light-moderate load. Controlled tempo.",
+            "label": "Hip thrust \u2014 3 \u00d7 12",
+            "note": "Full lockout, squeeze glutes at the top.",
             "disc": "Strength"
           },
           {
-            "label": "Weighted plank — 3 × 40 sec",
-            "note": "",
+            "label": "Push-ups \u2014 3 \u00d7 23",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Plank \u2014 3 \u00d7 58 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6422,56 +7358,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Tempo: 38 min",
+        "type": "Swim + Run (5 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 2,000 m (10x100 m sprints RI 20s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ VO2max intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy, 1 mile @10K pace, 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 18 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6480,51 +7401,66 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:45 + Strength (upper/core focus)",
+        "type": "Bike + Strength (upper/core focus)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 45 min, 8x1 min hard efforts scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 85 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Dumbbell row \u2014 3 \u00d7 10",
+            "note": "Flat back, pull to the hip, squeeze shoulder blade.",
+            "disc": "Strength"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Pull-ups or lat pulldown — 4 × 8",
+            "label": "Lat pulldown or assisted pull-up \u2014 3 \u00d7 10",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Dumbbell shoulder press — 3 × 10",
+            "label": "Standing cable/band hip abduction \u2014 3 \u00d7 12 each side",
+            "note": "Keep this in every session \u2014 ongoing ITB protection.",
+            "disc": "Strength"
+          },
+          {
+            "label": "Calf raises \u2014 3 \u00d7 15",
             "note": "",
             "disc": "Strength"
           },
           {
-            "label": "Single-leg calf raise — 2 × 12 each leg",
-            "note": "Light — supports ankle/lower-leg durability for race-distance running.",
+            "label": "Push-ups \u2014 3 \u00d7 23",
+            "note": "Scale to knee push-ups if needed \u2014 keep full-body tension.",
             "disc": "Strength"
           },
           {
-            "label": "Pallof press — 3 × 10 each side",
-            "note": "",
+            "label": "Plank \u2014 3 \u00d7 58 sec",
+            "note": "Flat back, ribs down, breathe \u2014 don't let hips sag or pike.",
             "disc": "Strength"
           },
           {
-            "label": "Dead bug — 3 × 10 each side",
-            "note": "",
-            "disc": "Strength"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6533,61 +7469,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 1 hr + Strides",
+        "type": "Swim + Run (4 mi)",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,600 m (2x400 m race pace RI 30s)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 400 @ threshold intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 4 miles (~6.4 km) easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 40 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6595,22 +7511,47 @@ const PLAN = [
       },
       {
         "day": "Sat",
-        "discipline": "Brick",
-        "type": "Brick: 2:30",
+        "discipline": "Bike",
+        "type": "Long Bike + Transition Run",
         "steps": [
           {
-            "label": "WU: Bike 105 min @ moderate aerobic",
+            "label": "Bike 40 miles (~64.37 km) moderate",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: Run 45 min @ moderate aerobic",
+            "label": "10 miles (~16.09 km) race pace",
+            "note": "",
+            "disc": "Bike"
+          },
+          {
+            "label": "10 min transition run race pace",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6618,42 +7559,42 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Time Trial: 2,512 Yards (1.2 miles) + Run: Foundation: 30 min",
+        "discipline": "Run",
+        "type": "Long Run (8 mi) + Easy Swim",
         "steps": [
           {
-            "label": "WU: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2,112 yards (1.2 miles) @ MAXIMUM intensity — full race distance swim!",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 200 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 8 miles (~12.9 km) moderate",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 10 min @ moderate aerobic",
+            "label": "Swim 2,400 m (600 m race pace)",
             "note": "",
-            "disc": "Run"
+            "disc": "Swim"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Cross-body shoulder stretch \u2014 30 sec each arm",
+            "note": "Pull one arm across your chest with the other hand, shoulder relaxed down.",
             "disc": "Stretch"
           }
         ],
@@ -6663,8 +7604,8 @@ const PLAN = [
   },
   {
     "week": 21,
-    "phase": "Taper",
-    "note": "Pre-race taper begins Thursday — training decreases to ensure peak performance on race day",
+    "phase": "Race Week",
+    "note": "RACE WEEK!",
     "days": [
       {
         "day": "Mon",
@@ -6672,33 +7613,53 @@ const PLAN = [
         "type": "Movement Prep + Stretch",
         "steps": [
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
+            "label": "Clamshells \u2014 2 \u00d7 15 each side",
+            "note": "Light resistance band above knees, slow and controlled.",
             "disc": "Mobility"
           },
           {
-            "label": "Side-lying leg raises — 2 × 12 each side",
+            "label": "Side-lying leg raises \u2014 2 \u00d7 12 each side",
             "note": "Keep hips stacked, don't let the top hip roll back.",
             "disc": "Mobility"
           },
           {
-            "label": "Glute bridges — 2 × 15",
+            "label": "Glute bridges \u2014 2 \u00d7 15",
             "note": "Squeeze glutes at the top, 2-sec hold.",
             "disc": "Mobility"
           },
           {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
+            "label": "Bird-dog \u2014 2 \u00d7 8 each side",
+            "note": "Slow, controlled, keep the hips level.",
             "disc": "Mobility"
           },
           {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
+            "label": "World's greatest stretch \u2014 2 \u00d7 5 each side",
+            "note": "Lunge, rotate, reach \u2014 full-body activation.",
             "disc": "Mobility"
           },
           {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
+            "label": "Figure-4 glute stretch \u2014 30 sec each side",
+            "note": "Lie on your back, cross ankle over opposite knee, pull knee toward chest.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Pigeon pose (hip opener) \u2014 45 sec each side",
+            "note": "Front shin angled under torso, back leg extended, fold forward if comfortable.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Thread-the-needle upper back stretch \u2014 30 sec each side",
+            "note": "On all fours, thread one arm under and across, rest shoulder toward the floor.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Neck side-bend stretch \u2014 20 sec each side",
+            "note": "Gently tilt ear toward shoulder, no shoulder shrugging.",
             "disc": "Stretch"
           }
         ],
@@ -6707,46 +7668,36 @@ const PLAN = [
       {
         "day": "Tue",
         "discipline": "Bike",
-        "type": "Bike: Tempo: 1:15 + Strength (hip/glute focus)",
+        "type": "Bike: Easy opener spin",
         "steps": [
           {
-            "label": "WU: 19 min @ moderate aerobic",
+            "label": "Bike 10 min easy",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 2 × 14 min @ threshold intensity with 10 min active recovery",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 18 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "Goblet squat — 2 × 10 (light)",
-            "note": "Taper means less load, not less movement. Keep it easy.",
-            "disc": "Strength"
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
           },
           {
-            "label": "Single-leg RDL — 2 × 8 each leg (light)",
-            "note": "",
-            "disc": "Strength"
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
           },
           {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "Plank — 2 × 30 sec",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6755,56 +7706,41 @@ const PLAN = [
       {
         "day": "Wed",
         "discipline": "Swim",
-        "type": "Swim: Base: 2,100 Yards + Run: Tempo: 40 min",
+        "type": "Swim + Run: short easy openers",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 1,300 m (5x100 m easy)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 5 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ VO2max intensity, RI=0:30",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
+            "label": "Run 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 20 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6813,41 +7749,36 @@ const PLAN = [
       {
         "day": "Thu",
         "discipline": "Bike",
-        "type": "Bike: Foundation: 1:30 (last hard ride) + Strength (upper/core focus)",
+        "type": "Bike: Easy opener spin",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Bike 10 min easy, 5x30s sprints scattered",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 70 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "Seated row — 2 × 10 (light)",
-            "note": "",
-            "disc": "Strength"
+            "label": "Calf stretch against a wall \u2014 30 sec each leg",
+            "note": "Back leg straight, heel down, lean into the wall.",
+            "disc": "Stretch"
           },
           {
-            "label": "Band pull-aparts — 2 × 15",
-            "note": "",
-            "disc": "Strength"
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
+            "disc": "Stretch"
           },
           {
-            "label": "Side plank — 2 × 20 sec each side",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Overhead triceps/lat stretch \u2014 30 sec each arm",
+            "note": "Reach one arm overhead, bend elbow, gently pull with the other hand.",
             "disc": "Stretch"
           }
         ],
@@ -6856,61 +7787,41 @@ const PLAN = [
       {
         "day": "Fri",
         "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 2,100 Yards + Run: Foundation: 55 min + Strides",
+        "type": "Swim + Run: short easy openers",
         "steps": [
           {
-            "label": "WU: 300 @ low aerobic",
+            "label": "Swim 800 m (400 m race pace)",
             "note": "",
             "disc": "Swim"
           },
           {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 400 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 50 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 kick, RI=0:15",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Run 2 miles easy",
             "note": "",
             "disc": "Run"
           },
           {
-            "label": "MS: 35 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
           },
           {
-            "label": "Strides: 4 × 20 sec @ speed intensity, 40-sec recovery",
-            "note": "",
-            "disc": "Run"
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
+            "label": "Kneeling hip flexor stretch \u2014 30 sec each side",
+            "note": "Half-kneeling, tuck pelvis under and lean forward until you feel the front of the hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6918,27 +7829,42 @@ const PLAN = [
       },
       {
         "day": "Sat",
-        "discipline": "Bike",
-        "type": "Bike: Long Bike: 2:15",
+        "discipline": "Brick",
+        "type": "Pre-race openers (swim/bike/run)",
         "steps": [
           {
-            "label": "WU: 10 min @ moderate aerobic",
+            "label": "Swim 10 min easy with 4x30s race pace",
+            "note": "",
+            "disc": "Swim"
+          },
+          {
+            "label": "Bike 10 min with 4x30s fast",
             "note": "",
             "disc": "Bike"
           },
           {
-            "label": "MS: 115 min @ moderate aerobic",
+            "label": "Run 10 min with 4x20s at 90% effort",
             "note": "",
-            "disc": "Bike"
+            "disc": "Run"
           },
           {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
+            "label": "Standing quad stretch \u2014 30 sec each leg",
+            "note": "Grab your ankle behind you, knees together, tuck pelvis slightly.",
+            "disc": "Stretch"
           },
           {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
+            "label": "Seated hamstring stretch \u2014 30 sec each leg",
+            "note": "Sit tall, hinge from the hips toward your toes, keep back flat.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Standing IT band / side stretch \u2014 30 sec each side",
+            "note": "Cross one foot behind the other, reach overhead and lean away from that hip.",
+            "disc": "Stretch"
+          },
+          {
+            "label": "Doorway chest stretch \u2014 30 sec",
+            "note": "Forearm on frame, step through gently until you feel a stretch across the chest.",
             "disc": "Stretch"
           }
         ],
@@ -6946,299 +7872,11 @@ const PLAN = [
       },
       {
         "day": "Sun",
-        "discipline": "Swim",
-        "type": "Swim: Base: 2,000 Yards + Run: Long Run: 1:05",
-        "steps": [
-          {
-            "label": "WU: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 1,500 @ moderate aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 250 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "MS: 45 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-07"
-      }
-    ]
-  },
-  {
-    "week": 22,
-    "phase": "Race Week",
-    "note": "🏁 Race Week — protect your energy. Sunday is race day!",
-    "days": [
-      {
-        "day": "Mon",
-        "discipline": "Mobility",
-        "type": "Movement Prep + Stretch",
-        "steps": [
-          {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "Light resistance band above knees. Slow and controlled — quality over speed.",
-            "disc": "Mobility"
-          },
-          {
-            "label": "Side-lying leg raises — 2 × 12 each side",
-            "note": "Keep hips stacked, don't let the top hip roll back.",
-            "disc": "Mobility"
-          },
-          {
-            "label": "Glute bridges — 2 × 15",
-            "note": "Squeeze glutes at the top, 2-sec hold.",
-            "disc": "Mobility"
-          },
-          {
-            "label": "Standing hip 90/90 flow — 2 min each side",
-            "note": "Mobility for hip internal/external rotation.",
-            "disc": "Mobility"
-          },
-          {
-            "label": "Single-leg balance reach — 2 × 8 each side",
-            "note": "Light knee control work — this is what keeps the IT band happy under running load.",
-            "disc": "Mobility"
-          },
-          {
-            "label": "🧘 Stretch — 10 min",
-            "note": "Hip flexors, glutes, IT band/TFL, calves, quads. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-08"
-      },
-      {
-        "day": "Tue",
-        "discipline": "Bike",
-        "type": "Bike: Tempo: 1 hr + Strength (hip/glute focus)",
-        "steps": [
-          {
-            "label": "WU: 13 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "MS: 2 × 12 min @ threshold intensity with 10 min active recovery",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 13 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Goblet squat — 2 × 10 (light)",
-            "note": "Taper means less load, not less movement. Keep it easy.",
-            "disc": "Strength"
-          },
-          {
-            "label": "Single-leg RDL — 2 × 8 each leg (light)",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "Clamshells — 2 × 15 each side",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "Plank — 2 × 30 sec",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-09"
-      },
-      {
-        "day": "Wed",
-        "discipline": "Swim",
-        "type": "Swim: Base: 1,700 Yards + Run: Tempo: 32 min",
-        "steps": [
-          {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 8 × 25 drills, RI=0:10",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 3 × 100 @ moderate aerobic, RI=0:05",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 6 × 100 @ VO2max intensity, RI=1:00",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "WU: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "MS: 12 min @ threshold intensity",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "CD: 10 min @ low aerobic",
-            "note": "",
-            "disc": "Run"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (run-focused)",
-            "note": "Hip flexor lunge stretch, standing IT band/TFL stretch against a wall, figure-4 glute stretch, calf stretch, quad stretch. Hold each 30–45 sec per side. Foam roll quads/TFL first if tight.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-10"
-      },
-      {
-        "day": "Thu",
-        "discipline": "Bike",
-        "type": "Bike: Foundation: 45 min (easy) + Strength (upper/core focus)",
-        "steps": [
-          {
-            "label": "WU: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "MS: 25 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ moderate aerobic",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "Seated row — 2 × 10 (light)",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "Band pull-aparts — 2 × 15",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "Side plank — 2 × 20 sec each side",
-            "note": "",
-            "disc": "Strength"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-11"
-      },
-      {
-        "day": "Fri",
-        "discipline": "Swim",
-        "type": "Swim: Threshold + Sprint: 1,100 Yards (short & sharp)",
-        "steps": [
-          {
-            "label": "WU: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 2 × 200 @ threshold intensity, RI=0:45",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "MS: 4 × 25 @ speed intensity, RI=0:20",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "CD: 300 @ low aerobic",
-            "note": "",
-            "disc": "Swim"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-12"
-      },
-      {
-        "day": "Sat",
-        "discipline": "Bike",
-        "type": "Bike: Recovery: 20 min only",
-        "steps": [
-          {
-            "label": "WU: 10 min @ recovery intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "CD: 10 min @ recovery intensity",
-            "note": "",
-            "disc": "Bike"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
-          }
-        ],
-        "date": "2027-03-13"
-      },
-      {
-        "day": "Sun",
         "discipline": "RACE",
-        "type": "RACE: 🏁 RACE DAY — 70.3 Half Ironman!",
+        "type": "RACE: \ud83c\udfc1 RACE DAY \u2014 70.3 Half Ironman!",
         "steps": [
           {
-            "label": "WU: Swim 1.2 miles (1,931 meters)",
+            "label": "WU: Swim 1.2 miles (1,931 m)",
             "note": "",
             "disc": "RACE"
           },
@@ -7253,17 +7891,12 @@ const PLAN = [
             "disc": "RACE"
           },
           {
-            "label": "🎉 YOU ARE A HALF IRONMAN!",
+            "label": "\ud83c\udf89 YOU ARE A HALF IRONMAN!",
             "note": "",
             "disc": "RACE"
-          },
-          {
-            "label": "🧘 Stretch — 10 min (bike-focused)",
-            "note": "Hip flexor lunge stretch, seated figure-4 glute stretch, quad stretch, low-back child's pose, chest/shoulder opener. Hold each 30–45 sec per side.",
-            "disc": "Stretch"
           }
         ],
-        "date": "2027-03-14"
+        "date": "2027-03-07"
       }
     ]
   }
